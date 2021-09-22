@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_SeguridadInformaticaModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="BD_SeguridadInformaticaEntities101" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BCA_Bitacora" EntityType="BD_SeguridadInformaticaModel1.BCA_Bitacora" />
+    <EntitySet Name="BCA_Servicios" EntityType="BD_SeguridadInformaticaModel1.BCA_Servicios" />
+    <AssociationSet Name="FK_BCA_Bitacora_BCA_Servicios" Association="BD_SeguridadInformaticaModel1.FK_BCA_Bitacora_BCA_Servicios">
+      <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+      <End Role="BCA_Bitacora" EntitySet="BCA_Bitacora" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BCA_Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdServicio" Type="Int32" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" />
+    <Property Name="FechaFin" Type="DateTime" Nullable="false" />
+    <Property Name="Esfuerzo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Responsable" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Detalle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BCA_Servicios" Relationship="BD_SeguridadInformaticaModel1.FK_BCA_Bitacora_BCA_Servicios" FromRole="BCA_Bitacora" ToRole="BCA_Servicios" />
+  </EntityType>
+  <EntityType Name="BCA_Servicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AuditUser" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="AuditFecha" Nullable="false" />
+    <Property Type="String" Name="AuditMachine" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BCA_Bitacora" Relationship="BD_SeguridadInformaticaModel1.FK_BCA_Bitacora_BCA_Servicios" FromRole="BCA_Servicios" ToRole="BCA_Bitacora" />
+  </EntityType>
+  <Association Name="FK_BCA_Bitacora_BCA_Servicios">
+    <End Type="BD_SeguridadInformaticaModel1.BCA_Servicios" Role="BCA_Servicios" Multiplicity="1" />
+    <End Type="BD_SeguridadInformaticaModel1.BCA_Bitacora" Role="BCA_Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BCA_Servicios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BCA_Bitacora">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

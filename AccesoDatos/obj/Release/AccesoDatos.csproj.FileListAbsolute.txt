@@ -1,0 +1,17 @@
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll.config
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.pdb
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.pdb
+D:\Mariela\Bitacoras\Bitacora\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll.config
+D:\Mariela\Bitacoras\Bitacora\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Bitacora\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.pdb
+D:\Mariela\Bitacoras\Bitacora\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Bitacora\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.pdb
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\bin\Release\AccesoDatos.dll.config
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\bin\Release\AccesoDatos.dll
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\bin\Release\AccesoDatos.pdb
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\obj\Release\AccesoDatos.csproj.AssemblyReference.cache
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\obj\Release\AccesoDatos.csproj.CoreCompileInputs.cache
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\obj\Release\AccesoDatos.dll
+F:\MARIELA\_TRABAJO\Proyectos\Github\Bitacora\APP\AccesoDatos\obj\Release\AccesoDatos.pdb

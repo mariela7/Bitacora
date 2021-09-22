@@ -1,0 +1,1291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_SeguridadInformaticaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BD_SeguridadInformaticaModelStoreContainer">
+          <EntitySet Name="BCA_Bitacora" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Bitacora" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BCA_Listas" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Listas" store:Type="Tables" store:Schema="dbo" store:Name="BCA_Listas">
+            <DefiningQuery>SELECT 
+      [BCA_Listas].[IdLista] AS [IdLista], 
+      [BCA_Listas].[NombreLista] AS [NombreLista], 
+      [BCA_Listas].[Valor] AS [Valor]
+      FROM [dbo].[BCA_Listas] AS [BCA_Listas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BCA_Servicios" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Servicios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BCA_Servicios_Detalle" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Servicios_Detalle" store:Type="Tables" store:Schema="dbo" store:Name="BCA_Servicios_Detalle">
+            <DefiningQuery>SELECT 
+      [BCA_Servicios_Detalle].[IdServicio] AS [IdServicio], 
+      [BCA_Servicios_Detalle].[Orden] AS [Orden], 
+      [BCA_Servicios_Detalle].[Nombre] AS [Nombre], 
+      [BCA_Servicios_Detalle].[Tipo] AS [Tipo], 
+      [BCA_Servicios_Detalle].[EsLista] AS [EsLista], 
+      [BCA_Servicios_Detalle].[IdLista] AS [IdLista]
+      FROM [dbo].[BCA_Servicios_Detalle] AS [BCA_Servicios_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BCO_Cabecera" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Cabecera" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BCO_Categorias" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Categorias" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BCO_Detalle" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Detalle" store:Type="Tables" store:Schema="dbo" store:Name="BCO_Detalle">
+            <DefiningQuery>SELECT 
+      [BCO_Detalle].[IdCab] AS [IdCab], 
+      [BCO_Detalle].[Texto] AS [Texto], 
+      [BCO_Detalle].[Observaciones] AS [Observaciones], 
+      [BCO_Detalle].[Responsable] AS [Responsable], 
+      [BCO_Detalle].[FechaIngreso] AS [FechaIngreso]
+      FROM [dbo].[BCO_Detalle] AS [BCO_Detalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Bitacora_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categorias_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empresas_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LogsConexion" EntityType="BD_SeguridadInformaticaModel.Store.LogsConexion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LogsTransaccion" EntityType="BD_SeguridadInformaticaModel.Store.LogsTransaccion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Servicios_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BCA_Bitacora_BCA_Servicios" Association="BD_SeguridadInformaticaModel.Store.FK_BCA_Bitacora_BCA_Servicios">
+            <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+            <End Role="BCA_Bitacora" EntitySet="BCA_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BCA_Servicios_Detalle_BCA_Servicios" Association="BD_SeguridadInformaticaModel.Store.FK_BCA_Servicios_Detalle_BCA_Servicios">
+            <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+            <End Role="BCA_Servicios_Detalle" EntitySet="BCA_Servicios_Detalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.Store.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+            <End Role="Categorias_IngenieriaSeguridad" EntitySet="Categorias_IngenieriaSeguridad" />
+            <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.Store.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+            <End Role="Empresas_IngenieriaSeguridad" EntitySet="Empresas_IngenieriaSeguridad" />
+            <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BCA_Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Name="IdBitacora" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Esfuerzo" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Responsable" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Detalle" Type="xml" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCA_Listas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BCA_Listas">
+          <Key>
+            <PropertyRef Name="IdLista" />
+            <PropertyRef Name="NombreLista" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdLista" Type="int" Nullable="false" />
+          <Property Name="NombreLista" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Valor" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="BCA_Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="AuditUser" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="AuditFecha" Type="datetime" Nullable="false" />
+          <Property Name="AuditMachine" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCA_Servicios_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BCA_Servicios_Detalle">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="Orden" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="EsLista" />
+            <PropertyRef Name="IdLista" />
+          </Key>
+          <Property Name="IdServicio" Type="int" Nullable="false" />
+          <Property Name="Orden" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EsLista" Type="bit" Nullable="false" />
+          <Property Name="IdLista" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BCO_Cabecera">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCat" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="BCO_Categorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCO_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BCO_Detalle">
+          <Key>
+            <PropertyRef Name="IdCab" />
+            <PropertyRef Name="Responsable" />
+            <PropertyRef Name="FechaIngreso" />
+          </Key>
+          <Property Name="IdCab" Type="int" Nullable="false" />
+          <Property Name="Texto" Type="text" />
+          <Property Name="Observaciones" Type="text" />
+          <Property Name="Responsable" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bitacora_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdRegistro" />
+          </Key>
+          <Property Name="IdRegistro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategoria" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaFin" Type="datetime" Nullable="false" />
+          <Property Name="Tarea" Type="varchar(max)" Nullable="false" />
+          <Property Name="Frecuencia" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Evidencia" Type="varchar(max)" Nullable="false" />
+          <Property Name="ResponsableIS" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Esfuerzo" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="HoraExtra" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categorias_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionCategoria" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="EstaActivo" Type="bit" />
+          <Property Name="IdServicio" Type="int" />
+        </EntityType>
+        <EntityType Name="Empresas_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEmpresa" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LogsConexion">
+          <Key>
+            <PropertyRef Name="IdLogConexion" />
+          </Key>
+          <Property Name="IdLogConexion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHora" Type="datetime" Nullable="false" />
+          <Property Name="Accion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Autor" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IpOrigen" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Formulario" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LogsTransaccion">
+          <Key>
+            <PropertyRef Name="IdLog" />
+          </Key>
+          <Property Name="IdLog" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FechaHora" Type="datetime" Nullable="false" />
+          <Property Name="DatoAnterior" Type="xml" Nullable="false" />
+          <Property Name="DatoNuevo" Type="xml" Nullable="false" />
+          <Property Name="Autor" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="IpOrigen" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="Tabla" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Accion" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Servicios_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Name="IdServicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreServicio" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="PoseeTareas" Type="bit" Nullable="false" />
+          <Property Name="EstaActivo" Type="bit" Nullable="false" />
+          <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+          <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_BCA_Bitacora_BCA_Servicios">
+          <End Role="BCA_Servicios" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios" Multiplicity="1" />
+          <End Role="BCA_Bitacora" Type="BD_SeguridadInformaticaModel.Store.BCA_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BCA_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BCA_Bitacora">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BCA_Servicios_Detalle_BCA_Servicios">
+          <End Role="BCA_Servicios" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios" Multiplicity="1" />
+          <End Role="BCA_Servicios_Detalle" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios_Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BCA_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BCA_Servicios_Detalle">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+          <End Role="Categorias_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad" Multiplicity="1" />
+          <End Role="Bitacora_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias_IngenieriaSeguridad">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Bitacora_IngenieriaSeguridad">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+          <End Role="Empresas_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad" Multiplicity="1" />
+          <End Role="Bitacora_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas_IngenieriaSeguridad">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Bitacora_IngenieriaSeguridad">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Autorizados_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Bitacora_CertificacionApp_EditarLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdLista" Type="int" Mode="In" />
+          <Parameter Name="NombreLista" Type="varchar" Mode="In" />
+          <Parameter Name="Valor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_InsertDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+          <Parameter Name="Responsable" Type="varchar" Mode="In" />
+          <Parameter Name="Detalle" Type="xml" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_InsertLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdLista" Type="int" Mode="In" />
+          <Parameter Name="NombreLista" Type="varchar" Mode="In" />
+          <Parameter Name="Valor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_ListaSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Bitacora_CertificacionApp_SelectByServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="responsable" Type="varchar" Mode="In" />
+          <Parameter Name="mes" Type="int" Mode="In" />
+          <Parameter Name="anio" Type="int" Mode="In" />
+          <Parameter Name="servicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_SelectByServicio_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="responsable" Type="varchar" Mode="In" />
+          <Parameter Name="mes" Type="int" Mode="In" />
+          <Parameter Name="anio" Type="int" Mode="In" />
+          <Parameter Name="servicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_SelectLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdLista" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_SelectServicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Bitacora_CertificacionApp_SelectServiciosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_CertificacionApp_UpdateDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDetalle" Type="int" Mode="In" />
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+          <Parameter Name="Responsable" Type="varchar" Mode="In" />
+          <Parameter Name="Detalle" Type="xml" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRegistro" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Tarea" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Frecuencia" Type="varchar" Mode="In" />
+          <Parameter Name="Evidencia" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+          <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+          <Parameter Name="HoraExtra" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByIdResgistro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRegistro" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByMes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Mes" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByMes_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Mes" Type="varchar" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByResponsable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Responsable" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Servicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectByServicio_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Servicio" Type="int" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_SelectVariosFiltros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Servicio" Type="int" Mode="In" />
+          <Parameter Name="Responsable" Type="varchar" Mode="In" />
+          <Parameter Name="Mes" Type="varchar" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="ano" Type="int" Mode="In" />
+          <Parameter Name="extra" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Bitacora_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdRegistro" Type="int" Mode="In" />
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+          <Parameter Name="Tarea" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Frecuencia" Type="varchar" Mode="In" />
+          <Parameter Name="Evidencia" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+          <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+          <Parameter Name="HoraExtra" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Categorias_IngenieriaSeguridad_SelectbyDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_SelectbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_SelectbyIdServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Categorias_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_CabeceraLIsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCat" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_CategoriasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_CategoriasLIsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Conocimiento_CategoriasUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCat" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_DetalleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCat" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="texto" Type="text" Mode="In" />
+          <Parameter Name="observaciones" Type="text" Mode="In" />
+          <Parameter Name="responsable" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_DetalleSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCab" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Conocimiento_DetalleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCAB" Type="int" Mode="In" />
+          <Parameter Name="IdCat" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="texto" Type="text" Mode="In" />
+          <Parameter Name="observaciones" Type="text" Mode="In" />
+          <Parameter Name="responsable" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Empresas_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Empresas_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Empresas_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Empresas_IngenieriaSeguridad_SelectByIdEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Empresas_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+          <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="LogsConexion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Autor" Type="varchar" Mode="In" />
+          <Parameter Name="IpOrigen" Type="varchar" Mode="In" />
+          <Parameter Name="Formulario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ObtenerAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Servicios_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Servicios_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+          <Parameter Name="PoseeTareas" Type="bit" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Servicios_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Servicios_IngenieriaSeguridad_SelectbyDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Servicios_IngenieriaSeguridad_SelectbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Servicios_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdServicio" Type="int" Mode="In" />
+          <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+          <Parameter Name="PoseeTareas" Type="bit" Mode="In" />
+          <Parameter Name="EstaActivo" Type="bit" Mode="In" />
+          <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+          <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_SeguridadInformaticaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BD_SeguridadInformaticaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad" />
+          <EntitySet Name="Empresas_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad" />
+          <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+            <End Role="Empresas_IngenieriaSeguridad" EntitySet="Empresas_IngenieriaSeguridad" />
+            <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+          </AssociationSet>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdRegistro" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Tarea" Mode="In" Type="String" />
+            <Parameter Name="Frecuencia" Mode="In" Type="String" />
+            <Parameter Name="Evidencia" Mode="In" Type="String" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+            <Parameter Name="Esfuerzo" Mode="In" Type="Decimal" />
+            <Parameter Name="HoraExtra" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectAll" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)" />
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByIdResgistro" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="IdRegistro" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByMes" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="Mes" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByResponsable" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="Responsable" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByServicio" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="Servicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdRegistro" Mode="In" Type="Int32" />
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="Tarea" Mode="In" Type="String" />
+            <Parameter Name="Frecuencia" Mode="In" Type="String" />
+            <Parameter Name="Evidencia" Mode="In" Type="String" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+            <Parameter Name="Esfuerzo" Mode="In" Type="Decimal" />
+            <Parameter Name="HoraExtra" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="DescripcionCategoria" Mode="In" Type="String" />
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_SelectAll" EntitySet="Categorias_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad)" />
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_SelectbyDescripcion" EntitySet="Categorias_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad)">
+          <Parameter Name="DescripcionCategoria" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_SelectbyId" EntitySet="Categorias_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad)">
+          <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionCategoria" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="NombreEmpresa" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_SelectAll" EntitySet="Empresas_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad)" />
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_SelectByIdEmpresa" EntitySet="Empresas_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad)">
+          <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="NombreEmpresa" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" EntitySet="Empresas_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad)">
+          <Parameter Name="NombreEmpresa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByServicio_User" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="Servicio" Mode="In" Type="Int32" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByMes_User" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="Mes" Mode="In" Type="String" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+          <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="ResponsableIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdPlataforma" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionPlataforma" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_SelectbyId">
+          <Parameter Name="IdPlataforma" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_SelectbyDescripcion">
+          <Parameter Name="DescripcionPlataforma" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_SelectAll" />
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdPlataforma" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Plataforma_CertificacionAplicaciones_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="DescripcionPlataforma" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdSoftware" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="DescripcionSoftware" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_SelectAll" />
+          <FunctionImport Name="Software_CertificacionAplicaciones_SelectbyDescripcion">
+          <Parameter Name="DescripcionSoftware" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdSoftware" Mode="In" Type="Int32" />
+            <Parameter Name="DescripcionSoftware" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_SelectbyId">
+          <Parameter Name="IdSoftware" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Software_CertificacionAplicaciones_SelectbyTipo">
+          <Parameter Name="Tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LogsConexion_Insert">
+            <Parameter Name="Accion" Mode="In" Type="String" />
+            <Parameter Name="Autor" Mode="In" Type="String" />
+            <Parameter Name="IpOrigen" Mode="In" Type="String" />
+            <Parameter Name="Formulario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_IngenieriaSeguridad_SelectVariosFiltros" EntitySet="Bitacora_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad)">
+            <Parameter Name="Servicio" Mode="In" Type="Int32" />
+            <Parameter Name="Responsable" Mode="In" Type="String" />
+            <Parameter Name="Mes" Mode="In" Type="String" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+            <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="ano" Mode="In" Type="Int32" />
+            <Parameter Name="extra" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ObtenerAno" ReturnType="Collection(Int32)" />
+          <EntitySet Name="LogsConexion" EntityType="BD_SeguridadInformaticaModel.LogsConexion" />
+          <EntitySet Name="LogsTransaccion" EntityType="BD_SeguridadInformaticaModel.LogsTransaccion" />
+          <FunctionImport Name="Bitacora_CertificacionApp_InsertLista" ReturnType="Collection(Int32)">
+            <Parameter Name="IdLista" Mode="In" Type="Int32" />
+            <Parameter Name="NombreLista" Mode="In" Type="String" />
+            <Parameter Name="Valor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_CertificacionApp_ListaSelectAll" EntitySet="BCA_Listas" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Listas)" />
+          <FunctionImport Name="Bitacora_CertificacionApp_EditarLista">
+            <Parameter Name="IdLista" Mode="In" Type="Int32" />
+            <Parameter Name="NombreLista" Mode="In" Type="String" />
+            <Parameter Name="Valor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_CertificacionApp_InsertDetalle" ReturnType="Collection(Int32)">
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="Esfuerzo" Mode="In" Type="Decimal" />
+            <Parameter Name="Responsable" Mode="In" Type="String" />
+            <Parameter Name="Detalle" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="BCO_Cabecera" EntityType="BD_SeguridadInformaticaModel.BCO_Cabecera" />
+          <EntitySet Name="BCO_Categorias" EntityType="BD_SeguridadInformaticaModel.BCO_Categorias" />
+          <EntitySet Name="BCO_Detalle" EntityType="BD_SeguridadInformaticaModel.BCO_Detalle" />
+          <FunctionImport Name="Conocimiento_CabeceraLIsta" EntitySet="BCO_Cabecera" ReturnType="Collection(BD_SeguridadInformaticaModel.BCO_Cabecera)">
+          <Parameter Name="idCat" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Conocimiento_CategoriasLIsta" EntitySet="BCO_Categorias" ReturnType="Collection(BD_SeguridadInformaticaModel.BCO_Categorias)" />
+          <FunctionImport Name="Conocimiento_DetalleSelect" EntitySet="BCO_Detalle" ReturnType="Collection(BD_SeguridadInformaticaModel.BCO_Detalle)">
+          <Parameter Name="idCab" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Conocimiento_DetalleInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="IdCat" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="responsable" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Conocimiento_DetalleUpdate" ReturnType="Collection(Int32)">
+            <Parameter Name="idCAB" Mode="In" Type="Int32" />
+            <Parameter Name="IdCat" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="texto" Mode="In" Type="String" />
+            <Parameter Name="observaciones" Mode="In" Type="String" />
+            <Parameter Name="responsable" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Conocimiento_CategoriasInsert" ReturnType="Collection(Int32)">
+          <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Conocimiento_CategoriasUpdate" ReturnType="Collection(Int32)">
+            <Parameter Name="IdCat" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Autorizados_List" ReturnType="Collection(String)" />
+          <EntitySet Name="BCA_Listas" EntityType="BD_SeguridadInformaticaModel.BCA_Listas" />
+          <FunctionImport Name="Bitacora_CertificacionApp_SelectLista" EntitySet="BCA_Listas" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Listas)">
+          <Parameter Name="IdLista" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="BCA_Bitacora" EntityType="BD_SeguridadInformaticaModel.BCA_Bitacora" />
+          <EntitySet Name="BCA_Servicios" EntityType="BD_SeguridadInformaticaModel.BCA_Servicios" />
+          <EntitySet Name="BCA_Servicios_Detalle" EntityType="BD_SeguridadInformaticaModel.BCA_Servicios_Detalle" />
+          <AssociationSet Name="FK_BCA_Bitacora_BCA_Servicios" Association="BD_SeguridadInformaticaModel.FK_BCA_Bitacora_BCA_Servicios">
+            <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+            <End Role="BCA_Bitacora" EntitySet="BCA_Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BCA_Servicios_Detalle_BCA_Servicios" Association="BD_SeguridadInformaticaModel.FK_BCA_Servicios_Detalle_BCA_Servicios">
+            <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+            <End Role="BCA_Servicios_Detalle" EntitySet="BCA_Servicios_Detalle" />
+          </AssociationSet>
+          <FunctionImport Name="Bitacora_CertificacionApp_SelectServicios" EntitySet="BCA_Servicios" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Servicios)" />
+          <FunctionImport Name="Bitacora_CertificacionApp_SelectServiciosDetalles" EntitySet="BCA_Servicios_Detalle" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Servicios_Detalle)">
+          <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_CertificacionApp_SelectByServicio" EntitySet="BCA_Bitacora" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Bitacora)">
+            <Parameter Name="responsable" Mode="In" Type="String" />
+            <Parameter Name="mes" Mode="In" Type="Int32" />
+            <Parameter Name="anio" Mode="In" Type="Int32" />
+            <Parameter Name="servicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_Delete" ReturnType="Collection(Int32)">
+          <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="NombreServicio" Mode="In" Type="String" />
+            <Parameter Name="PoseeTareas" Mode="In" Type="Boolean" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Servicios_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad" />
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_SelectAll" EntitySet="Servicios_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad)" />
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_SelectbyDescripcion" EntitySet="Servicios_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad)">
+          <Parameter Name="NombreServicio" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_SelectbyId" EntitySet="Servicios_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad)">
+          <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Servicios_IngenieriaSeguridad_Update" ReturnType="Collection(Int32)">
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="NombreServicio" Mode="In" Type="String" />
+            <Parameter Name="PoseeTareas" Mode="In" Type="Boolean" />
+            <Parameter Name="EstaActivo" Mode="In" Type="Boolean" />
+            <Parameter Name="Audit_User" Mode="In" Type="String" />
+            <Parameter Name="Audit_IpUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Categorias_IngenieriaSeguridad_SelectbyIdServicio" EntitySet="Categorias_IngenieriaSeguridad" ReturnType="Collection(BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad)">
+          <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Categorias_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad" />
+          <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+            <End Role="Categorias_IngenieriaSeguridad" EntitySet="Categorias_IngenieriaSeguridad" />
+            <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+          </AssociationSet>
+          <FunctionImport Name="Bitacora_CertificacionApp_UpdateDetalle" ReturnType="Collection(Int32)">
+            <Parameter Name="IdDetalle" Mode="In" Type="Int32" />
+            <Parameter Name="IdServicio" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="Esfuerzo" Mode="In" Type="Decimal" />
+            <Parameter Name="Responsable" Mode="In" Type="String" />
+            <Parameter Name="Detalle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Bitacora_CertificacionApp_SelectByServicio_ALL" EntitySet="BCA_Bitacora" ReturnType="Collection(BD_SeguridadInformaticaModel.BCA_Bitacora)">
+            <Parameter Name="responsable" Mode="In" Type="String" />
+            <Parameter Name="mes" Mode="In" Type="Int32" />
+            <Parameter Name="anio" Mode="In" Type="Int32" />
+            <Parameter Name="servicio" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <EntityType Name="Bitacora_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdRegistro" />
+          </Key>
+          <Property Type="Int32" Name="IdRegistro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdCategoria" Nullable="false" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Tarea" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Frecuencia" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Evidencia" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ResponsableIS" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Esfuerzo" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Empresas_IngenieriaSeguridad" Relationship="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" FromRole="Bitacora_IngenieriaSeguridad" ToRole="Empresas_IngenieriaSeguridad" />
+          <Property Type="Boolean" Name="HoraExtra" Nullable="false" />
+          <NavigationProperty Name="Categorias_IngenieriaSeguridad" Relationship="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" FromRole="Bitacora_IngenieriaSeguridad" ToRole="Categorias_IngenieriaSeguridad" />
+        </EntityType>
+        <EntityType Name="Empresas_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreEmpresa" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Audit_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Audit_FechaUltimaModificacion" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Audit_IpUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bitacora_IngenieriaSeguridad" Relationship="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" FromRole="Empresas_IngenieriaSeguridad" ToRole="Bitacora_IngenieriaSeguridad" />
+        </EntityType>
+        <Association Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+          <End Type="BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad" Role="Empresas_IngenieriaSeguridad" Multiplicity="1" />
+          <End Type="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad" Role="Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas_IngenieriaSeguridad">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Bitacora_IngenieriaSeguridad">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LogsConexion">
+          <Key>
+            <PropertyRef Name="IdLogConexion" />
+          </Key>
+          <Property Type="Int32" Name="IdLogConexion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Accion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IpOrigen" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Formulario" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LogsTransaccion">
+          <Key>
+            <PropertyRef Name="IdLog" />
+          </Key>
+          <Property Type="Int32" Name="IdLog" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" Precision="3" />
+          <Property Type="String" Name="DatoAnterior" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DatoNuevo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IpOrigen" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tabla" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Accion" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="Bitacora_CertificacionApp_ListaSelectAll_Result">
+          <Property Type="Int32" Name="IdLista" Nullable="false" />
+          <Property Type="String" Name="NombreLista" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Valor" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <EntityType Name="BCO_Cabecera">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdCat" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BCO_Categorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BCO_Detalle">
+          <Key>
+            <PropertyRef Name="IdCab" />
+            <PropertyRef Name="Responsable" />
+            <PropertyRef Name="FechaIngreso" />
+          </Key>
+          <Property Type="Int32" Name="IdCab" Nullable="false" />
+          <Property Type="String" Name="Texto" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Observaciones" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Responsable" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FechaIngreso" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BCA_Listas">
+          <Key>
+            <PropertyRef Name="IdLista" />
+            <PropertyRef Name="NombreLista" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Type="Int32" Name="IdLista" Nullable="false" />
+          <Property Type="String" Name="NombreLista" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Valor" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BCA_Bitacora">
+          <Key>
+            <PropertyRef Name="IdBitacora" />
+          </Key>
+          <Property Type="Int32" Name="IdServicio" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="Decimal" Name="Esfuerzo" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="Responsable" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Detalle" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BCA_Servicios" Relationship="BD_SeguridadInformaticaModel.FK_BCA_Bitacora_BCA_Servicios" FromRole="BCA_Bitacora" ToRole="BCA_Servicios" />
+          <Property Type="Int32" Name="IdBitacora" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="BCA_Servicios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AuditUser" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="AuditFecha" Nullable="false" />
+          <Property Type="String" Name="AuditMachine" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BCA_Bitacora" Relationship="BD_SeguridadInformaticaModel.FK_BCA_Bitacora_BCA_Servicios" FromRole="BCA_Servicios" ToRole="BCA_Bitacora" />
+          <NavigationProperty Name="BCA_Servicios_Detalle" Relationship="BD_SeguridadInformaticaModel.FK_BCA_Servicios_Detalle_BCA_Servicios" FromRole="BCA_Servicios" ToRole="BCA_Servicios_Detalle" />
+        </EntityType>
+        <EntityType Name="BCA_Servicios_Detalle">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+            <PropertyRef Name="Orden" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="EsLista" />
+            <PropertyRef Name="IdLista" />
+          </Key>
+          <Property Type="Int32" Name="IdServicio" Nullable="false" />
+          <Property Type="Int32" Name="Orden" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EsLista" Nullable="false" />
+          <Property Type="Int32" Name="IdLista" Nullable="false" />
+          <NavigationProperty Name="BCA_Servicios" Relationship="BD_SeguridadInformaticaModel.FK_BCA_Servicios_Detalle_BCA_Servicios" FromRole="BCA_Servicios_Detalle" ToRole="BCA_Servicios" />
+        </EntityType>
+        <Association Name="FK_BCA_Bitacora_BCA_Servicios">
+          <End Type="BD_SeguridadInformaticaModel.BCA_Servicios" Role="BCA_Servicios" Multiplicity="1" />
+          <End Type="BD_SeguridadInformaticaModel.BCA_Bitacora" Role="BCA_Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BCA_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BCA_Bitacora">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BCA_Servicios_Detalle_BCA_Servicios">
+          <End Type="BD_SeguridadInformaticaModel.BCA_Servicios" Role="BCA_Servicios" Multiplicity="1" />
+          <End Type="BD_SeguridadInformaticaModel.BCA_Servicios_Detalle" Role="BCA_Servicios_Detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BCA_Servicios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BCA_Servicios_Detalle">
+              <PropertyRef Name="IdServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Servicios_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdServicio" />
+          </Key>
+          <Property Type="Int32" Name="IdServicio" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreServicio" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="PoseeTareas" Nullable="false" />
+          <Property Type="Boolean" Name="EstaActivo" Nullable="false" />
+          <Property Type="String" Name="Audit_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Audit_FechaUltimaModificacion" Nullable="false" />
+          <Property Type="String" Name="Audit_IpUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Categorias_IngenieriaSeguridad">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Type="Int32" Name="IdCategoria" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DescripcionCategoria" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EstaActivo" Nullable="false" />
+          <Property Type="Int32" Name="IdServicio" Nullable="false" />
+          <Property Type="String" Name="Audit_User" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Audit_FechaUltimaModificacion" Nullable="false" />
+          <Property Type="String" Name="Audit_IpUsuario" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bitacora_IngenieriaSeguridad" Relationship="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" FromRole="Categorias_IngenieriaSeguridad" ToRole="Bitacora_IngenieriaSeguridad" />
+        </EntityType>
+        <Association Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+          <End Type="BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad" Role="Categorias_IngenieriaSeguridad" Multiplicity="1" />
+          <End Type="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad" Role="Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias_IngenieriaSeguridad">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Bitacora_IngenieriaSeguridad">
+              <PropertyRef Name="IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_SeguridadInformaticaModelStoreContainer" CdmEntityContainer="BD_SeguridadInformaticaEntities">
+          <EntitySetMapping Name="Bitacora_IngenieriaSeguridad">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad">
+              <MappingFragment StoreEntitySet="Bitacora_IngenieriaSeguridad">
+                <ScalarProperty Name="HoraExtra" ColumnName="HoraExtra" />
+                <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+                <ScalarProperty Name="ResponsableIS" ColumnName="ResponsableIS" />
+                <ScalarProperty Name="Evidencia" ColumnName="Evidencia" />
+                <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+                <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas_IngenieriaSeguridad">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad">
+              <MappingFragment StoreEntitySet="Empresas_IngenieriaSeguridad">
+                <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+                <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+                <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+                <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Delete" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Insert" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectAll" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByEmpresa" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByIdResgistro" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByIdResgistro" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByMes" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByMes" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByResponsable" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByResponsable" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByServicio" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Update" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Delete" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Insert" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectAll" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyDescripcion" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyDescripcion" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyId" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyId" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Update" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Delete" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Insert" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectAll" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectByIdEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectByIdEmpresa" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Update" />
+          <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByServicio_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByServicio_User" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByMes_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByMes_User" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaInicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaInicio" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaFin" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaFin" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" />
+          <FunctionImportMapping FunctionImportName="LogsConexion_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.LogsConexion_Insert" />
+          <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectVariosFiltros" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectVariosFiltros" />
+          <FunctionImportMapping FunctionImportName="ObtenerAno" FunctionName="BD_SeguridadInformaticaModel.Store.ObtenerAno" />
+          <EntitySetMapping Name="LogsConexion">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.LogsConexion">
+              <MappingFragment StoreEntitySet="LogsConexion">
+                <ScalarProperty Name="Formulario" ColumnName="Formulario" />
+                <ScalarProperty Name="IpOrigen" ColumnName="IpOrigen" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+                <ScalarProperty Name="IdLogConexion" ColumnName="IdLogConexion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogsTransaccion">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.LogsTransaccion">
+              <MappingFragment StoreEntitySet="LogsTransaccion">
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Tabla" ColumnName="Tabla" />
+                <ScalarProperty Name="IpOrigen" ColumnName="IpOrigen" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="DatoNuevo" ColumnName="DatoNuevo" />
+                <ScalarProperty Name="DatoAnterior" ColumnName="DatoAnterior" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+                <ScalarProperty Name="IdLog" ColumnName="IdLog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_InsertLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_InsertLista" />
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_ListaSelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_ListaSelectAll">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_EditarLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_EditarLista" />
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_InsertDetalle" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_InsertDetalle" />
+          <EntitySetMapping Name="BCO_Cabecera">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Cabecera">
+              <MappingFragment StoreEntitySet="BCO_Cabecera">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdCat" ColumnName="IdCat" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BCO_Categorias">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Categorias">
+              <MappingFragment StoreEntitySet="BCO_Categorias">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BCO_Detalle">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Detalle">
+              <MappingFragment StoreEntitySet="BCO_Detalle">
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Texto" ColumnName="Texto" />
+                <ScalarProperty Name="IdCab" ColumnName="IdCab" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Conocimiento_CabeceraLIsta" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CabeceraLIsta" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasLIsta" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasLIsta" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_DetalleSelect" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleSelect" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_DetalleInsert" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleInsert" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_DetalleUpdate" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleUpdate" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasInsert" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasInsert" />
+          <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasUpdate" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasUpdate" />
+          <FunctionImportMapping FunctionImportName="Autorizados_List" FunctionName="BD_SeguridadInformaticaModel.Store.Autorizados_List" />
+          <EntitySetMapping Name="BCA_Listas">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Listas">
+              <MappingFragment StoreEntitySet="BCA_Listas">
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="NombreLista" ColumnName="NombreLista" />
+                <ScalarProperty Name="IdLista" ColumnName="IdLista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectLista" />
+          <EntitySetMapping Name="BCA_Bitacora">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Bitacora">
+              <MappingFragment StoreEntitySet="BCA_Bitacora">
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BCA_Servicios">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Servicios">
+              <MappingFragment StoreEntitySet="BCA_Servicios">
+                <ScalarProperty Name="AuditMachine" ColumnName="AuditMachine" />
+                <ScalarProperty Name="AuditFecha" ColumnName="AuditFecha" />
+                <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BCA_Servicios_Detalle">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Servicios_Detalle">
+              <MappingFragment StoreEntitySet="BCA_Servicios_Detalle">
+                <ScalarProperty Name="IdLista" ColumnName="IdLista" />
+                <ScalarProperty Name="EsLista" ColumnName="EsLista" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectServicios" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectServicios" />
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectServiciosDetalles" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectServiciosDetalles" />
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectByServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectByServicio" />
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Delete" />
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Insert" />
+          <EntitySetMapping Name="Servicios_IngenieriaSeguridad">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad">
+              <MappingFragment StoreEntitySet="Servicios_IngenieriaSeguridad">
+                <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+                <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+                <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+                <ScalarProperty Name="PoseeTareas" ColumnName="PoseeTareas" />
+                <ScalarProperty Name="NombreServicio" ColumnName="NombreServicio" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectAll" />
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectbyDescripcion" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectbyDescripcion" />
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectbyId" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectbyId" />
+          <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Update" />
+          <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyIdServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyIdServicio" />
+          <EntitySetMapping Name="Categorias_IngenieriaSeguridad">
+            <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad">
+              <MappingFragment StoreEntitySet="Categorias_IngenieriaSeguridad">
+                <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+                <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+                <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+                <ScalarProperty Name="DescripcionCategoria" ColumnName="DescripcionCategoria" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_UpdateDetalle" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_UpdateDetalle" />
+          <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectByServicio_ALL" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectByServicio_ALL" />
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="EntityModel_SeguridadInformatica" ZoomLevel="71">
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad" Width="1.5" PointX="3" PointY="1" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad" Width="1.5" PointX="0.5" PointY="4.625" Height="2.1725878906249996" />
+        <AssociationConnector Association="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" >
+          <ConnectorPoint PointX="2" PointY="5.8961393229166692" />
+          <ConnectorPoint PointX="3.75" PointY="5.8961393229166692" />
+          <ConnectorPoint PointX="3.75" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.LogsConexion" Width="1.5" PointX="4.875" PointY="4.5" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.LogsTransaccion" Width="1.5" PointX="7.125" PointY="4.625" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCO_Cabecera" Width="1.5" PointX="0.75" PointY="7.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCO_Categorias" Width="1.5" PointX="2.75" PointY="7.75" Height="1.4033821614583353" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCO_Detalle" Width="1.5" PointX="4.75" PointY="7.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCA_Listas" Width="1.5" PointX="7.375" PointY="7.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCA_Bitacora" Width="1.5" PointX="5.125" PointY="0.875" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCA_Servicios" Width="1.625" PointX="7.625" PointY="0.875" Height="2.3648893229166661" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.BCA_Servicios_Detalle" Width="1.5" PointX="9.875" PointY="0.875" Height="2.3648893229166674" />
+        <AssociationConnector Association="BD_SeguridadInformaticaModel.FK_BCA_Bitacora_BCA_Servicios" >
+          <ConnectorPoint PointX="7.625" PointY="2.0574446614583333" />
+          <ConnectorPoint PointX="6.625" PointY="2.0574446614583333" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_SeguridadInformaticaModel.FK_BCA_Servicios_Detalle_BCA_Servicios" >
+          <ConnectorPoint PointX="9.25" PointY="2.0574446614583328" />
+          <ConnectorPoint PointX="9.875" PointY="2.0574446614583328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad" Width="1.5" PointX="9.375" PointY="4.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad" Width="1.5" PointX="0.75" PointY="1.125" Height="2.5571907552083388" />
+        <AssociationConnector Association="BD_SeguridadInformaticaModel.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" >
+          <ConnectorPoint PointX="2.25" PointY="2.4035953776041694" />
+          <ConnectorPoint PointX="3" PointY="2.4035953776041694" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

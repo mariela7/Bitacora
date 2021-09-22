@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_SeguridadInformaticaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BD_SeguridadInformaticaModelStoreContainer">
+    <EntitySet Name="BCA_Bitacora" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Bitacora" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BCA_Listas" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Listas" store:Type="Tables" store:Schema="dbo" store:Name="BCA_Listas">
+      <DefiningQuery>SELECT 
+      [BCA_Listas].[IdLista] AS [IdLista], 
+      [BCA_Listas].[NombreLista] AS [NombreLista], 
+      [BCA_Listas].[Valor] AS [Valor]
+      FROM [dbo].[BCA_Listas] AS [BCA_Listas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BCA_Servicios" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Servicios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BCA_Servicios_Detalle" EntityType="BD_SeguridadInformaticaModel.Store.BCA_Servicios_Detalle" store:Type="Tables" store:Schema="dbo" store:Name="BCA_Servicios_Detalle">
+      <DefiningQuery>SELECT 
+      [BCA_Servicios_Detalle].[IdServicio] AS [IdServicio], 
+      [BCA_Servicios_Detalle].[Orden] AS [Orden], 
+      [BCA_Servicios_Detalle].[Nombre] AS [Nombre], 
+      [BCA_Servicios_Detalle].[Tipo] AS [Tipo], 
+      [BCA_Servicios_Detalle].[EsLista] AS [EsLista], 
+      [BCA_Servicios_Detalle].[IdLista] AS [IdLista]
+      FROM [dbo].[BCA_Servicios_Detalle] AS [BCA_Servicios_Detalle]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="BCO_Cabecera" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Cabecera" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BCO_Categorias" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Categorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BCO_Detalle" EntityType="BD_SeguridadInformaticaModel.Store.BCO_Detalle" store:Type="Tables" store:Schema="dbo" store:Name="BCO_Detalle">
+      <DefiningQuery>SELECT 
+      [BCO_Detalle].[IdCab] AS [IdCab], 
+      [BCO_Detalle].[Texto] AS [Texto], 
+      [BCO_Detalle].[Observaciones] AS [Observaciones], 
+      [BCO_Detalle].[Responsable] AS [Responsable], 
+      [BCO_Detalle].[FechaIngreso] AS [FechaIngreso]
+      FROM [dbo].[BCO_Detalle] AS [BCO_Detalle]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Bitacora_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categorias_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empresas_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogsConexion" EntityType="BD_SeguridadInformaticaModel.Store.LogsConexion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogsTransaccion" EntityType="BD_SeguridadInformaticaModel.Store.LogsTransaccion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Servicios_IngenieriaSeguridad" EntityType="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BCA_Bitacora_BCA_Servicios" Association="BD_SeguridadInformaticaModel.Store.FK_BCA_Bitacora_BCA_Servicios">
+      <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+      <End Role="BCA_Bitacora" EntitySet="BCA_Bitacora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BCA_Servicios_Detalle_BCA_Servicios" Association="BD_SeguridadInformaticaModel.Store.FK_BCA_Servicios_Detalle_BCA_Servicios">
+      <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+      <End Role="BCA_Servicios_Detalle" EntitySet="BCA_Servicios_Detalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.Store.FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+      <End Role="Categorias_IngenieriaSeguridad" EntitySet="Categorias_IngenieriaSeguridad" />
+      <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad" Association="BD_SeguridadInformaticaModel.Store.FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+      <End Role="Empresas_IngenieriaSeguridad" EntitySet="Empresas_IngenieriaSeguridad" />
+      <End Role="Bitacora_IngenieriaSeguridad" EntitySet="Bitacora_IngenieriaSeguridad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BCA_Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Esfuerzo" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Responsable" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Detalle" Type="xml" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCA_Listas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="BCA_Listas">
+    <Key>
+      <PropertyRef Name="IdLista" />
+      <PropertyRef Name="NombreLista" />
+      <PropertyRef Name="Valor" />
+    </Key>
+    <Property Name="IdLista" Type="int" Nullable="false" />
+    <Property Name="NombreLista" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Valor" Type="varchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="BCA_Servicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AuditUser" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AuditFecha" Type="datetime" Nullable="false" />
+    <Property Name="AuditMachine" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCA_Servicios_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="BCA_Servicios_Detalle">
+    <Key>
+      <PropertyRef Name="IdServicio" />
+      <PropertyRef Name="Orden" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="EsLista" />
+      <PropertyRef Name="IdLista" />
+    </Key>
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="Orden" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Tipo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="EsLista" Type="bit" Nullable="false" />
+    <Property Name="IdLista" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BCO_Cabecera">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdCat" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="BCO_Categorias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'BD_SeguridadInformatica.dbo.BCO_Detalle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="BCO_Detalle">
+    <Key>
+      <PropertyRef Name="IdCab" />
+      <PropertyRef Name="Responsable" />
+      <PropertyRef Name="FechaIngreso" />
+    </Key>
+    <Property Name="IdCab" Type="int" Nullable="false" />
+    <Property Name="Texto" Type="text" />
+    <Property Name="Observaciones" Type="text" />
+    <Property Name="Responsable" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bitacora_IngenieriaSeguridad">
+    <Key>
+      <PropertyRef Name="IdRegistro" />
+    </Key>
+    <Property Name="IdRegistro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdCategoria" Type="int" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFin" Type="datetime" Nullable="false" />
+    <Property Name="Tarea" Type="varchar(max)" Nullable="false" />
+    <Property Name="Frecuencia" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Evidencia" Type="varchar(max)" Nullable="false" />
+    <Property Name="ResponsableIS" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Esfuerzo" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="HoraExtra" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categorias_IngenieriaSeguridad">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionCategoria" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="EstaActivo" Type="bit" />
+    <Property Name="IdServicio" Type="int" />
+  </EntityType>
+  <EntityType Name="Empresas_IngenieriaSeguridad">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEmpresa" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LogsConexion">
+    <Key>
+      <PropertyRef Name="IdLogConexion" />
+    </Key>
+    <Property Name="IdLogConexion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FechaHora" Type="datetime" Nullable="false" />
+    <Property Name="Accion" Type="varchar(max)" Nullable="false" />
+    <Property Name="Autor" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="IpOrigen" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Formulario" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LogsTransaccion">
+    <Key>
+      <PropertyRef Name="IdLog" />
+    </Key>
+    <Property Name="IdLog" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FechaHora" Type="datetime" Nullable="false" />
+    <Property Name="DatoAnterior" Type="xml" Nullable="false" />
+    <Property Name="DatoNuevo" Type="xml" Nullable="false" />
+    <Property Name="Autor" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="IpOrigen" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="Tabla" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Accion" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Servicios_IngenieriaSeguridad">
+    <Key>
+      <PropertyRef Name="IdServicio" />
+    </Key>
+    <Property Name="IdServicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreServicio" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="PoseeTareas" Type="bit" Nullable="false" />
+    <Property Name="EstaActivo" Type="bit" Nullable="false" />
+    <Property Name="Audit_User" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Audit_FechaUltimaModificacion" Type="datetime" Nullable="false" />
+    <Property Name="Audit_IpUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_BCA_Bitacora_BCA_Servicios">
+    <End Role="BCA_Servicios" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios" Multiplicity="1" />
+    <End Role="BCA_Bitacora" Type="BD_SeguridadInformaticaModel.Store.BCA_Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BCA_Servicios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BCA_Bitacora">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BCA_Servicios_Detalle_BCA_Servicios">
+    <End Role="BCA_Servicios" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios" Multiplicity="1" />
+    <End Role="BCA_Servicios_Detalle" Type="BD_SeguridadInformaticaModel.Store.BCA_Servicios_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BCA_Servicios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BCA_Servicios_Detalle">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bitacora_IngenieriaSeguridad_Categorias_IngenieriaSeguridad">
+    <End Role="Categorias_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad" Multiplicity="1" />
+    <End Role="Bitacora_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias_IngenieriaSeguridad">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Bitacora_IngenieriaSeguridad">
+        <PropertyRef Name="IdCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bitacora_IngenieriaSeguridad_Empresas_IngenieriaSeguridad">
+    <End Role="Empresas_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad" Multiplicity="1" />
+    <End Role="Bitacora_IngenieriaSeguridad" Type="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas_IngenieriaSeguridad">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Bitacora_IngenieriaSeguridad">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Autorizados_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Bitacora_CertificacionApp_EditarLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdLista" Type="int" Mode="In" />
+    <Parameter Name="NombreLista" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_InsertDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+    <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+    <Parameter Name="Detalle" Type="xml" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_InsertLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdLista" Type="int" Mode="In" />
+    <Parameter Name="NombreLista" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_ListaSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Bitacora_CertificacionApp_SelectByServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="responsable" Type="varchar" Mode="In" />
+    <Parameter Name="mes" Type="int" Mode="In" />
+    <Parameter Name="anio" Type="int" Mode="In" />
+    <Parameter Name="servicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_SelectByServicio_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="responsable" Type="varchar" Mode="In" />
+    <Parameter Name="mes" Type="int" Mode="In" />
+    <Parameter Name="anio" Type="int" Mode="In" />
+    <Parameter Name="servicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_SelectLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdLista" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_SelectServicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Bitacora_CertificacionApp_SelectServiciosDetalles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_CertificacionApp_UpdateDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+    <Parameter Name="Fecha" Type="date" Mode="In" />
+    <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+    <Parameter Name="Detalle" Type="xml" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRegistro" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCategoria" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Tarea" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Frecuencia" Type="varchar" Mode="In" />
+    <Parameter Name="Evidencia" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+    <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+    <Parameter Name="HoraExtra" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByIdResgistro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRegistro" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByMes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Mes" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByMes_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Mes" Type="varchar" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByResponsable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Servicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectByServicio_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Servicio" Type="int" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_SelectVariosFiltros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Servicio" Type="int" Mode="In" />
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+    <Parameter Name="Mes" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="ano" Type="int" Mode="In" />
+    <Parameter Name="extra" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Bitacora_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRegistro" Type="int" Mode="In" />
+    <Parameter Name="IdCategoria" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Tarea" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Frecuencia" Type="varchar" Mode="In" />
+    <Parameter Name="Evidencia" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ResponsableIS" Type="varchar" Mode="In" />
+    <Parameter Name="Esfuerzo" Type="decimal" Mode="In" />
+    <Parameter Name="HoraExtra" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCategoria" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Categorias_IngenieriaSeguridad_SelectbyDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_SelectbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCategoria" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_SelectbyIdServicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Categorias_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCategoria" Type="int" Mode="In" />
+    <Parameter Name="DescripcionCategoria" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_CabeceraLIsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCat" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_CategoriasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_CategoriasLIsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Conocimiento_CategoriasUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCat" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_DetalleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCat" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="observaciones" Type="text" Mode="In" />
+    <Parameter Name="responsable" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_DetalleSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCab" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Conocimiento_DetalleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCAB" Type="int" Mode="In" />
+    <Parameter Name="IdCat" Type="int" Mode="In" />
+    <Parameter Name="nombre" Type="varchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="observaciones" Type="text" Mode="In" />
+    <Parameter Name="responsable" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Empresas_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Empresas_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Empresas_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Empresas_IngenieriaSeguridad_SelectByIdEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Empresas_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="NombreEmpresa" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="LogsConexion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Autor" Type="varchar" Mode="In" />
+    <Parameter Name="IpOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="Formulario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ObtenerAno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Servicios_IngenieriaSeguridad_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Servicios_IngenieriaSeguridad_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+    <Parameter Name="PoseeTareas" Type="bit" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Servicios_IngenieriaSeguridad_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Servicios_IngenieriaSeguridad_SelectbyDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Servicios_IngenieriaSeguridad_SelectbyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Servicios_IngenieriaSeguridad_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdServicio" Type="int" Mode="In" />
+    <Parameter Name="NombreServicio" Type="varchar" Mode="In" />
+    <Parameter Name="PoseeTareas" Type="bit" Mode="In" />
+    <Parameter Name="EstaActivo" Type="bit" Mode="In" />
+    <Parameter Name="Audit_User" Type="varchar" Mode="In" />
+    <Parameter Name="Audit_IpUsuario" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

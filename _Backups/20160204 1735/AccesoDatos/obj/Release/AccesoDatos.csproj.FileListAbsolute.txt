@@ -1,0 +1,6 @@
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll.config
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\bin\Release\AccesoDatos.pdb
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\obj\Release\ResolveAssemblyReference.cache
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.dll
+D:\Mariela\Bitacoras\Aplicacion\AccesoDatos\obj\Release\AccesoDatos.pdb

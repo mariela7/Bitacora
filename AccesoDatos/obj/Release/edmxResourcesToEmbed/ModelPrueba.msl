@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_SeguridadInformaticaModel1StoreContainer" CdmEntityContainer="BD_SeguridadInformaticaEntities101">
+    <EntitySetMapping Name="BCA_Bitacora">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel1.BCA_Bitacora">
+        <MappingFragment StoreEntitySet="BCA_Bitacora">
+          <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BCA_Servicios">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel1.BCA_Servicios">
+        <MappingFragment StoreEntitySet="BCA_Servicios">
+          <ScalarProperty Name="AuditMachine" ColumnName="AuditMachine" />
+          <ScalarProperty Name="AuditFecha" ColumnName="AuditFecha" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

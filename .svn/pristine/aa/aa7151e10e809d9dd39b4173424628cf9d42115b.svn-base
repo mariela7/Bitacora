@@ -1,0 +1,581 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+//using AccesoDatos;
+using LogicaNegocios.Metodos;
+using LogicaNegocios.Clases;
+using System.Net;
+
+namespace FrontEnd
+{
+    public partial class FrmMatrizVulnerabilidades : Form
+    {
+        //private static FrmMatrizVulnerabilidades m_FormDefInstance;
+        //public static FrmMatrizVulnerabilidades DefInstance
+        //{
+        //    get
+        //    {
+        //        if (m_FormDefInstance == null || m_FormDefInstance.IsDisposed)
+        //        {
+        //            m_FormDefInstance = new FrmMatrizVulnerabilidades();
+        //        }
+        //        else
+        //        {
+        //            m_FormDefInstance.BringToFront();
+        //        }
+        //        return m_FormDefInstance;
+        //    }
+        //    set
+        //    {
+        //        m_FormDefInstance = value;
+        //    }
+        //}
+
+        public FrmMatrizVulnerabilidades()
+        {
+            InitializeComponent();
+        }
+
+        MetodoBitacora_CertificacionAplicaciones metBitacora = new MetodoBitacora_CertificacionAplicaciones();
+        MetodoGeneral metGeneral = new MetodoGeneral();
+        MetodoMatrizVulnerabilidades metMatriz = new MetodoMatrizVulnerabilidades();
+        MetodoEmpresas_IngenieriaSeguridad metEmpresa = new MetodoEmpresas_IngenieriaSeguridad();
+
+        string UsuarioConectado = Environment.UserName;
+        int idVul = 0;
+
+        List<ClaseMatrizVulnerabilidades> listadoVulnerabilidades = new List<ClaseMatrizVulnerabilidades>();
+        List<ClaseEmpresas_IngenieriaSeguridad> ListaEmpresas = new List<ClaseEmpresas_IngenieriaSeguridad>();
+
+        string ipEquipo = string.Empty;
+
+        private void LlenarCombos()
+        {
+            //Empresas
+            ListaEmpresas = metEmpresa.Empresas_IngenieriaSeguridad_SelectAll();
+            ListaEmpresas = ListaEmpresas.OrderBy(x => x.NombreEmpresa).ToList();
+            ddlEmpresa.DataSource = ListaEmpresas;
+            ddlEmpresa.ValueMember = "IdEmpresa";
+            ddlEmpresa.DisplayMember = "NombreEmpresa";
+
+            ClaseParametros parametro = new ClaseParametros();
+            List<ClaseLista_CertificacionAplicaciones> lista = new List<ClaseLista_CertificacionAplicaciones>();
+
+            //Proveedor
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LPR");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlProveedor.DataSource = lista;
+            ddlProveedor.ValueMember = "Valor";
+            ddlProveedor.DisplayMember = "Valor";
+
+            //Aplicacion
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LAP");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlAplicaciones.DataSource = lista;
+            ddlAplicaciones.ValueMember = "Valor";
+            ddlAplicaciones.DisplayMember = "Valor";
+
+            //Nivel
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LNI");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlNivel.DataSource = lista;
+            ddlNivel.ValueMember = "Valor";
+            ddlNivel.DisplayMember = "Valor";
+
+            //Activo
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LAC");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlActivoVulnerabilidad.DataSource = lista;
+            ddlActivoVulnerabilidad.ValueMember = "Valor";
+            ddlActivoVulnerabilidad.DisplayMember = "Valor";
+
+            //Tipo Vulnerabilidad
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LTV");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlTipoVulnerabilidad.DataSource = lista;
+            ddlTipoVulnerabilidad.ValueMember = "Valor";
+            ddlTipoVulnerabilidad.DisplayMember = "Valor";
+
+            //Impacto
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LPI");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlImpacto.DataSource = lista;
+            ddlImpacto.ValueMember = "Valor";
+            ddlImpacto.DisplayMember = "Valor";
+
+            //Probabilidad
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LPI");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlProbabilidad.DataSource = lista;
+            ddlProbabilidad.ValueMember = "Valor";
+            ddlProbabilidad.DisplayMember = "Valor";
+
+            CalcularCriticidad(ddlImpacto.Text, ddlProbabilidad.Text);
+
+            //Tipo Cierre
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LTC");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlTipoCierre.DataSource = lista;
+            ddlTipoCierre.ValueMember = "Valor";
+            ddlTipoCierre.DisplayMember = "Valor";
+
+            //Estado
+            parametro = new ClaseParametros();
+            parametro = metGeneral.Parametros_SelectByCodigo("LEV");
+            lista = metBitacora.Bitacora_CertificacionApp_SelectLista(Convert.ToInt32(parametro.Valor));
+
+            lista = lista.OrderBy(x => x.Valor).ToList();
+            ddlEstado.DataSource = lista;
+            ddlEstado.ValueMember = "Valor";
+            ddlEstado.DisplayMember = "Valor";
+
+            if (ddlEstado.Text == "Cerrada")
+            {
+                gbxInformacionCierre.Enabled = true;
+            }
+            else
+            {
+                gbxInformacionCierre.Enabled = false;
+            }
+        }
+
+        public void CalcularCriticidad(string impacto, string probabilidad)
+        {
+            int imp = 0; int pro = 0;
+
+            if (impacto == "Alto")
+            {
+                imp = 3;
+            }
+            else if (impacto == "Medio")
+            {
+                imp = 2;
+            }
+            else
+            {
+                imp = 1;
+            }
+
+            if (probabilidad == "Alto")
+            {
+                pro = 3;
+            }
+            else if (probabilidad == "Medio")
+            {
+                pro = 2;
+            }
+            else
+            {
+                pro = 1;
+            }
+
+            int cri = 0;
+            cri = imp * pro;
+
+            Color colorBajo = new Color();
+            colorBajo = Color.FromArgb(109, 237, 103);
+
+            Color colorMedio = new Color();
+            colorMedio = Color.FromArgb(255, 255, 0);
+
+            Color colorAlto = new Color();
+            colorAlto = Color.FromArgb(255, 191, 0);
+
+            Color colorCritico = new Color();
+            colorCritico = Color.FromArgb(255, 0, 0);
+            
+            switch (cri)
+            {
+                case 1:
+                    txtCriticidad.Text = "Bajo";
+                    txtCriticidad.BackColor = colorBajo;
+                    break;
+                case 2:
+                    txtCriticidad.Text = "Bajo";
+                    txtCriticidad.BackColor = colorBajo;
+                    break;
+                case 3:
+                    txtCriticidad.Text = "Medio";
+                    txtCriticidad.BackColor = colorMedio;
+                    break;
+                case 4:
+                    txtCriticidad.Text = "Medio";
+                    txtCriticidad.BackColor = colorMedio;
+                    break;
+                case 6:
+                    txtCriticidad.Text = "Alto";
+                    txtCriticidad.BackColor = colorAlto;
+                    break;
+                default:
+                    txtCriticidad.Text = "Critico";
+                    txtCriticidad.BackColor = colorCritico;
+                    break;
+            }
+        }
+
+        private void FrmMatrizVulnerabilidades_Load(object sender, EventArgs e)
+        {
+            LlenarCombos();
+            ConsultaVulnerabilidad();
+            lstVulnerabilidades.Visible = false;
+            btnGrabar.Enabled = false;
+            btnVerDetalle.Enabled = false;
+
+            //InsertarLogConexion
+            ipEquipo = string.Empty;
+            IPHostEntry host;
+            host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily.ToString() == "InterNetwork")
+                {
+                    ipEquipo = ip.ToString();
+
+                    if (ipEquipo.Substring(0, 2) == "10")
+                    {
+                        break;
+                    }
+                }
+            }
+
+            ClaseLogsConexion claseLog = new ClaseLogsConexion();
+            claseLog.Accion = "Abrió el formulario";
+            claseLog.Autor = Environment.UserName;
+            claseLog.IpOrigen = ipEquipo;
+            claseLog.Formulario = "Matriz Vulnerabilidades";
+
+            MetodoLogsConexion metLog = new MetodoLogsConexion();
+            metLog.LogsConexion_Insert(claseLog);
+            MetodoGeneral miMetodo = new MetodoGeneral();
+            ClaseParametros parametro = new ClaseParametros();
+            parametro = miMetodo.Parametros_SelectByCodigo("BBM");
+            if (parametro.Valor == "ON")
+            {
+                MessageBox.Show("La bitácora se encuentra bloqueada por mantenimiento. Por favor contactarse con el administrador para conocer el tiempo de duración del bloqueo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Application.ExitThread();
+            }
+
+        }
+
+        public void NuevaVulnerabilidad()
+        {
+            txtCodigoSiTcs.ReadOnly = true;
+            txtCodigoUnico.ReadOnly = false;
+            txtCodigoProveedor.ReadOnly = false;
+            ddlProveedor.Enabled = true;
+            ddlEmpresa.Enabled = true;
+            dtpFechaIdentificacion.Enabled = true;
+            txtDocumentoFuente.ReadOnly = false;
+            ddlAplicaciones.Enabled = true;
+            ddlNivel.Enabled = true;
+            ddlActivoVulnerabilidad.Enabled = true;
+            txtEquipoModulo.ReadOnly = false;
+            ddlTipoVulnerabilidad.Enabled = true;
+            txtDescripcion.ReadOnly = false;
+            ddlImpacto.Enabled = true;
+            ddlProbabilidad.Enabled = true;
+            txtRecomendacion.ReadOnly = false;
+
+            ddlEstado.Enabled = false;
+            dtpFechaCierre.Enabled = false;
+            ddlTipoCierre.Enabled = false;
+            txtCodigoCierre.ReadOnly = true;
+
+            btnConsulta.Enabled = false;
+            txtCodigoUnico.Focus();
+        }
+
+        public void ConsultaVulnerabilidad()
+        {
+            txtCodigoSiTcs.ReadOnly = false;
+            txtCodigoUnico.ReadOnly = true;
+            txtCodigoProveedor.ReadOnly = true;
+            ddlProveedor.Enabled = false;
+            ddlEmpresa.Enabled = false;
+            dtpFechaIdentificacion.Enabled = false;
+            txtDocumentoFuente.ReadOnly = true;
+            ddlAplicaciones.Enabled = false;
+            ddlNivel.Enabled = false;
+            ddlActivoVulnerabilidad.Enabled = false;
+            txtEquipoModulo.ReadOnly = true;
+            ddlTipoVulnerabilidad.Enabled = false;
+            txtDescripcion.ReadOnly = true;
+            ddlImpacto.Enabled = false;
+            ddlProbabilidad.Enabled = false;
+            txtRecomendacion.ReadOnly = true;
+
+            ddlEstado.Enabled = false;
+            dtpFechaCierre.Enabled = true;
+            ddlTipoCierre.Enabled = true;
+            txtCodigoCierre.ReadOnly = false;
+
+            txtCodigoSiTcs.Focus();
+        }
+
+        public void LimpiarCajas()
+        {
+            txtCodigoSiTcs.Text = string.Empty;
+            txtCodigoUnico.Text = string.Empty;
+            txtCodigoProveedor.Text = string.Empty;
+            dtpFechaIdentificacion.Value = DateTime.Now;
+            txtDocumentoFuente.Text = string.Empty;
+            txtEquipoModulo.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtRecomendacion.Text = string.Empty;
+            dtpFechaCierre.Value = DateTime.Now;
+            txtCodigoCierre.Text = string.Empty;
+
+            btnConsulta.Enabled = true;
+            txtCodigoSiTcs.Focus();
+
+            idVul = 0;
+
+            LlenarCombos();
+        }
+
+        private void ddlImpacto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcularCriticidad(ddlImpacto.Text, ddlProbabilidad.Text);
+        }
+
+        private void ddlProbabilidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcularCriticidad(ddlImpacto.Text, ddlProbabilidad.Text);
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            if ((String.IsNullOrEmpty(txtCodigoUnico.Text.Trim()) == false)
+                && (String.IsNullOrEmpty(txtCodigoProveedor.Text.Trim()) == false)
+                && (String.IsNullOrEmpty(txtDocumentoFuente.Text.Trim()) == false)
+                && (String.IsNullOrEmpty(txtEquipoModulo.Text.Trim()) == false)
+                && (String.IsNullOrEmpty(txtDescripcion.Text.Trim()) == false)
+                && (String.IsNullOrEmpty(txtRecomendacion.Text.Trim()) == false))
+            {
+
+                ClaseMatrizVulnerabilidades matriz = new ClaseMatrizVulnerabilidades();
+
+                matriz.IdEmpresa = ListaEmpresas[ddlEmpresa.SelectedIndex].IdEmpresa;
+                matriz.CodigoUnico = txtCodigoUnico.Text.Trim();
+                matriz.CodigoProveedor = txtCodigoProveedor.Text.Trim();
+                matriz.Proveedor = ddlProveedor.Text.Trim();
+                matriz.FechaIdentificacion = dtpFechaIdentificacion.Value;
+                matriz.DocumentoFuente = txtDocumentoFuente.Text;
+                matriz.Aplicacion = ddlAplicaciones.Text.Trim();
+                matriz.Nivel = ddlNivel.Text.Trim();
+                matriz.Activo = ddlActivoVulnerabilidad.Text.Trim();
+                matriz.EquipoModulo = txtEquipoModulo.Text.Trim();
+                matriz.TipoVulnerabilidad = ddlTipoVulnerabilidad.Text.Trim();
+                matriz.Descripcion = txtDescripcion.Text.Trim();
+                matriz.Impacto = ddlImpacto.Text.Trim();
+                matriz.Probabilidad = ddlProbabilidad.Text.Trim();
+                matriz.Criticidad = txtCriticidad.Text.Trim();
+                matriz.Recomendacion = txtRecomendacion.Text.Trim();
+                matriz.Estado = ddlEstado.Text.Trim();
+                matriz.FechaCierre = dtpFechaCierre.Value;
+                matriz.TipoCierre = ddlTipoCierre.Text.Trim();
+                matriz.CodigoSolucion = txtCodigoCierre.Text.Trim();
+                matriz.ResponsableSI = UsuarioConectado;
+
+                string retorno = string.Empty;
+                string codigo = string.Empty;
+
+                retorno = metMatriz.MatrizVulnerabilidades_Insert(matriz);
+
+                int coma = 0, id = 0;
+                coma = retorno.IndexOf(',');
+                id = Convert.ToInt32(retorno.Substring(0, coma).Trim());
+                codigo = retorno.Substring(coma + 1, (retorno.Length - (coma + 1))).Trim();
+
+                if (String.IsNullOrEmpty(retorno))
+                {
+                    MessageBox.Show("Ocurrio un error al tratar de grabar la información.", "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (id > 0)
+                {
+                    txtCodigoSiTcs.Text = codigo.Trim();
+                    MessageBox.Show("Los datos fueron grabados exitosamente. El códgio generado fue: " + codigo.Trim(), "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnGrabar.Enabled = false;
+                    ConsultaVulnerabilidad();
+                    btnConsulta.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error al tratar de grabar la información.", "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor llenar todos los campos.", "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ddlEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlEstado.Text == "Cerrada")
+            {
+                gbxInformacionCierre.Enabled = true;
+            }
+            else
+            {
+                gbxInformacionCierre.Enabled = false;
+            }
+        }
+
+        private void btnConsulta_Click(object sender, EventArgs e)
+        {
+            btnVerDetalle.Enabled = true;
+
+            if (String.IsNullOrEmpty(txtCodigoSiTcs.Text))
+            {
+                MessageBox.Show("Debe ingresar un código para poder consultar una vulnerabilidad.", "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                listadoVulnerabilidades = new List<ClaseMatrizVulnerabilidades>();
+                listadoVulnerabilidades = metMatriz.MatrizVulnerabilidades_SelectByCodigoSiTCS(txtCodigoSiTcs.Text.Trim());
+
+                if (listadoVulnerabilidades.Count == 1)
+                {
+                    //Un registro
+                    idVul = listadoVulnerabilidades[0].IdVulnerabilidad;
+                    ddlEmpresa.SelectedValue = listadoVulnerabilidades[0].IdEmpresa;
+                    txtCodigoSiTcs.Text = listadoVulnerabilidades[0].CodigoSiTCS;
+                    txtCodigoUnico.Text = listadoVulnerabilidades[0].CodigoUnico;
+                    txtCodigoProveedor.Text = listadoVulnerabilidades[0].CodigoProveedor;
+                    ddlProveedor.SelectedValue =  listadoVulnerabilidades[0].Proveedor;
+                    dtpFechaIdentificacion.Value  =  listadoVulnerabilidades[0].FechaIdentificacion;
+                    txtDocumentoFuente.Text =  listadoVulnerabilidades[0].DocumentoFuente;
+                    ddlAplicaciones.SelectedValue = listadoVulnerabilidades[0].Aplicacion;
+                    ddlNivel.SelectedValue = listadoVulnerabilidades[0].Nivel;
+                    ddlActivoVulnerabilidad.SelectedValue = listadoVulnerabilidades[0].Activo;
+                    txtEquipoModulo.Text = listadoVulnerabilidades[0].EquipoModulo;
+                    ddlTipoVulnerabilidad.SelectedValue = listadoVulnerabilidades[0].TipoVulnerabilidad;
+                    txtDescripcion.Text = listadoVulnerabilidades[0].Descripcion;
+                    ddlImpacto.SelectedValue = listadoVulnerabilidades[0].Impacto;
+                    ddlProbabilidad.SelectedValue = listadoVulnerabilidades[0].Probabilidad;
+                    txtRecomendacion.Text = listadoVulnerabilidades[0].Recomendacion;
+                    ddlEstado.SelectedValue = listadoVulnerabilidades[0].Estado;
+                    dtpFechaCierre.Value = listadoVulnerabilidades[0].FechaCierre;
+                    ddlTipoCierre.SelectedValue = listadoVulnerabilidades[0].TipoCierre;
+                    txtCodigoCierre.Text = listadoVulnerabilidades[0].CodigoSolucion;
+
+                    if (listadoVulnerabilidades[0].Estado == "Cerrada")
+                    {
+                        gbxInformacionCierre.Enabled = false;
+                        ddlEstado.Enabled = false;
+                    }
+                    else
+                    {
+                        ddlEstado.Enabled = true;
+                        gbxInformacionCierre.Enabled = true;
+                    }
+                }
+                else if (listadoVulnerabilidades.Count == 0)
+                {
+                    //Ninguno
+                    MessageBox.Show("No hay códigos coincidentes.", "Seguridad Informática", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    //Mas de 1
+                    lstVulnerabilidades.Items.Clear();
+                    listadoVulnerabilidades = listadoVulnerabilidades.OrderBy(x => x.CodigoSiTCS).ToList();
+
+                    foreach (var item in listadoVulnerabilidades)
+                    {
+                        string empresa =  string.Empty;
+                        foreach (var a in ListaEmpresas)
+	                    {
+                            if (a.IdEmpresa == item.IdEmpresa)
+	                        {
+                                //(RTRIM(LTRIM(SUBSTRING(@Aplicacion, 0, CHARINDEX('-', @Aplicacion, 0)))))
+                                empresa = a.NombreEmpresa.Substring(0,a.NombreEmpresa.IndexOf('-',0));
+	                        }		 
+	                    }
+
+                        lstVulnerabilidades.Items.Add(item.CodigoSiTCS + ": " + empresa + " - " + item.Estado);
+                    }
+
+                    lstVulnerabilidades.Visible = true;
+                }
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarCajas();
+            NuevaVulnerabilidad();
+            txtCodigoUnico.Focus();
+            btnGrabar.Enabled = true;
+            btnVerDetalle.Enabled = false;
+        }
+
+        private void lstVulnerabilidades_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstVulnerabilidades.Items.Count > 0)
+            {
+                var a = lstVulnerabilidades.SelectedIndex;
+                txtCodigoSiTcs.Text = listadoVulnerabilidades[lstVulnerabilidades.SelectedIndex].CodigoSiTCS;
+                btnConsulta.PerformClick();
+                lstVulnerabilidades.Visible = false;
+            }
+        }
+
+        private void lstVulnerabilidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            FrmMatrizVulnerabilidadesDetalles formulario = new FrmMatrizVulnerabilidadesDetalles();
+            formulario.StartPosition = FormStartPosition.CenterScreen;
+            formulario.idVulnerabilidad = idVul;
+            formulario.ShowDialog();
+            
+        }
+
+        private void FrmMatrizVulnerabilidades_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClaseLogsConexion claseLog = new ClaseLogsConexion();
+            claseLog.Accion = "Cerró el formulario";
+            claseLog.Autor = Environment.UserName;
+            claseLog.IpOrigen = ipEquipo;
+            claseLog.Formulario = "Matriz Vulnerabilidades";
+
+            MetodoLogsConexion metLog = new MetodoLogsConexion();
+            metLog.LogsConexion_Insert(claseLog);
+        }
+    }
+}

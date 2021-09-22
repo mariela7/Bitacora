@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_SeguridadInformaticaModelStoreContainer" CdmEntityContainer="BD_SeguridadInformaticaEntities">
+    <EntitySetMapping Name="Bitacora_IngenieriaSeguridad">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Bitacora_IngenieriaSeguridad">
+        <MappingFragment StoreEntitySet="Bitacora_IngenieriaSeguridad">
+          <ScalarProperty Name="HoraExtra" ColumnName="HoraExtra" />
+          <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+          <ScalarProperty Name="ResponsableIS" ColumnName="ResponsableIS" />
+          <ScalarProperty Name="Evidencia" ColumnName="Evidencia" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas_IngenieriaSeguridad">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Empresas_IngenieriaSeguridad">
+        <MappingFragment StoreEntitySet="Empresas_IngenieriaSeguridad">
+          <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+          <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+          <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Delete" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Insert" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectAll" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByEmpresa" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByIdResgistro" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByIdResgistro" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByMes" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByMes" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByResponsable" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByResponsable" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByServicio" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_Update" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Delete" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Insert" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectAll" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyDescripcion" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyDescripcion" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyId" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyId" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_Update" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Delete" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Insert" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectAll" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectByIdEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectByIdEmpresa" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_Update" />
+    <FunctionImportMapping FunctionImportName="Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Empresas_IngenieriaSeguridad_SelectbyNombreEmpresa" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByEmpresa_User" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByServicio_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByServicio_User" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByMes_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByMes_User" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaInicio_User" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaInicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaInicio" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaFin" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaFin" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectByFechaFin_User" />
+    <FunctionImportMapping FunctionImportName="LogsConexion_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.LogsConexion_Insert" />
+    <FunctionImportMapping FunctionImportName="Bitacora_IngenieriaSeguridad_SelectVariosFiltros" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_IngenieriaSeguridad_SelectVariosFiltros" />
+    <FunctionImportMapping FunctionImportName="ObtenerAno" FunctionName="BD_SeguridadInformaticaModel.Store.ObtenerAno" />
+    <EntitySetMapping Name="LogsConexion">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.LogsConexion">
+        <MappingFragment StoreEntitySet="LogsConexion">
+          <ScalarProperty Name="Formulario" ColumnName="Formulario" />
+          <ScalarProperty Name="IpOrigen" ColumnName="IpOrigen" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+          <ScalarProperty Name="IdLogConexion" ColumnName="IdLogConexion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogsTransaccion">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.LogsTransaccion">
+        <MappingFragment StoreEntitySet="LogsTransaccion">
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Tabla" ColumnName="Tabla" />
+          <ScalarProperty Name="IpOrigen" ColumnName="IpOrigen" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="DatoNuevo" ColumnName="DatoNuevo" />
+          <ScalarProperty Name="DatoAnterior" ColumnName="DatoAnterior" />
+          <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+          <ScalarProperty Name="IdLog" ColumnName="IdLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_InsertLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_InsertLista" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_ListaSelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_ListaSelectAll" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_EditarLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_EditarLista" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_InsertDetalle" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_InsertDetalle" />
+    <EntitySetMapping Name="BCO_Cabecera">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Cabecera">
+        <MappingFragment StoreEntitySet="BCO_Cabecera">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCat" ColumnName="IdCat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BCO_Categorias">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Categorias">
+        <MappingFragment StoreEntitySet="BCO_Categorias">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BCO_Detalle">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCO_Detalle">
+        <MappingFragment StoreEntitySet="BCO_Detalle">
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="IdCab" ColumnName="IdCab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Conocimiento_CabeceraLIsta" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CabeceraLIsta" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasLIsta" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasLIsta" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_DetalleSelect" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleSelect" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_DetalleInsert" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleInsert" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_DetalleUpdate" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_DetalleUpdate" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasInsert" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasInsert" />
+    <FunctionImportMapping FunctionImportName="Conocimiento_CategoriasUpdate" FunctionName="BD_SeguridadInformaticaModel.Store.Conocimiento_CategoriasUpdate" />
+    <FunctionImportMapping FunctionImportName="Autorizados_List" FunctionName="BD_SeguridadInformaticaModel.Store.Autorizados_List" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectLista" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectLista" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectServicios" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectServicios" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectServiciosDetalles" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectServiciosDetalles" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectByServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectByServicio" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Delete" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Delete" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Insert" />
+    <EntitySetMapping Name="Servicios_IngenieriaSeguridad">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Servicios_IngenieriaSeguridad">
+        <MappingFragment StoreEntitySet="Servicios_IngenieriaSeguridad">
+          <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+          <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+          <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+          <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+          <ScalarProperty Name="PoseeTareas" ColumnName="PoseeTareas" />
+          <ScalarProperty Name="NombreServicio" ColumnName="NombreServicio" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectAll" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectAll" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectbyDescripcion" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectbyDescripcion" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectbyId" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectbyId" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_Update" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_Update" />
+    <FunctionImportMapping FunctionImportName="Categorias_IngenieriaSeguridad_SelectbyIdServicio" FunctionName="BD_SeguridadInformaticaModel.Store.Categorias_IngenieriaSeguridad_SelectbyIdServicio" />
+    <EntitySetMapping Name="Categorias_IngenieriaSeguridad">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Categorias_IngenieriaSeguridad">
+        <MappingFragment StoreEntitySet="Categorias_IngenieriaSeguridad">
+          <ScalarProperty Name="Audit_IpUsuario" ColumnName="Audit_IpUsuario" />
+          <ScalarProperty Name="Audit_FechaUltimaModificacion" ColumnName="Audit_FechaUltimaModificacion" />
+          <ScalarProperty Name="Audit_User" ColumnName="Audit_User" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="EstaActivo" ColumnName="EstaActivo" />
+          <ScalarProperty Name="DescripcionCategoria" ColumnName="DescripcionCategoria" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_UpdateDetalle" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_UpdateDetalle" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectByServicio_ALL" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectByServicio_ALL" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_ServicioEliminado" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_ServicioEliminado" />
+    <FunctionImportMapping FunctionImportName="Reporte_Facturacion" FunctionName="BD_SeguridadInformaticaModel.Store.Reporte_Facturacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_SeguridadInformaticaModel.ReporteFacturacionObj">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Evidencia" ColumnName="Evidencia" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Parametros">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.Parametros">
+        <MappingFragment StoreEntitySet="Parametros">
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Parametros_SelectByCodigo" FunctionName="BD_SeguridadInformaticaModel.Store.Parametros_SelectByCodigo" />
+    <EntitySetMapping Name="MatrizVulnerabilidades">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.MatrizVulnerabilidades">
+        <MappingFragment StoreEntitySet="MatrizVulnerabilidades">
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="ResponsableSI" ColumnName="ResponsableSI" />
+          <ScalarProperty Name="CodigoDeSolucion" ColumnName="CodigoDeSolucion" />
+          <ScalarProperty Name="TipoDeCierre" ColumnName="TipoDeCierre" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Recomendacion" ColumnName="Recomendacion" />
+          <ScalarProperty Name="Criticidad" ColumnName="Criticidad" />
+          <ScalarProperty Name="Probabilidad" ColumnName="Probabilidad" />
+          <ScalarProperty Name="Impacto" ColumnName="Impacto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoVulnerabilidad" ColumnName="TipoVulnerabilidad" />
+          <ScalarProperty Name="EquipoOModulo" ColumnName="EquipoOModulo" />
+          <ScalarProperty Name="ActivoConLaVulnerabilidad" ColumnName="ActivoConLaVulnerabilidad" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="Aplicacion" ColumnName="Aplicacion" />
+          <ScalarProperty Name="DocumentoFuente" ColumnName="DocumentoFuente" />
+          <ScalarProperty Name="FechaDeIdentificacion" ColumnName="FechaDeIdentificacion" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="CodigoSiTcs" ColumnName="CodigoSiTcs" />
+          <ScalarProperty Name="CodigoProveedor" ColumnName="CodigoProveedor" />
+          <ScalarProperty Name="CodigoUnico" ColumnName="CodigoUnico" />
+          <ScalarProperty Name="IdVulnerabilidad" ColumnName="IdVulnerabilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_Insert" />
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_SelectByCodigoSiTCS" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_SelectByCodigoSiTCS" />
+    <EntitySetMapping Name="MatrizVulnerabilidades_Detalle">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.MatrizVulnerabilidades_Detalle">
+        <MappingFragment StoreEntitySet="MatrizVulnerabilidades_Detalle">
+          <ScalarProperty Name="Evidencia" ColumnName="Evidencia" />
+          <ScalarProperty Name="TipoActividad" ColumnName="TipoActividad" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdVulnerabilidad" ColumnName="IdVulnerabilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_SelectServiciosByEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_SelectServiciosByEmpresa" />
+    <FunctionImportMapping FunctionImportName="Servicios_IngenieriaSeguridad_SelectByEmpresa" FunctionName="BD_SeguridadInformaticaModel.Store.Servicios_IngenieriaSeguridad_SelectByEmpresa" />
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_SelectByCodigoSiTCSYNoCerradas" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_SelectByCodigoSiTCSYNoCerradas" />
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionAplicaciones_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionAplicaciones_Insert" />
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_Detalle_Insert" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_Detalle_Insert" />
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_Update" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_Update" />
+    <FunctionImportMapping FunctionImportName="MatrizVulnerabilidades_Detalle_SelectByIdVulnerabilidad" FunctionName="BD_SeguridadInformaticaModel.Store.MatrizVulnerabilidades_Detalle_SelectByIdVulnerabilidad" />
+    <FunctionImportMapping FunctionImportName="BitacoraEmpresas_ByServicio" FunctionName="BD_SeguridadInformaticaModel.Store.BitacoraEmpresas_ByServicio" />
+    <EntitySetMapping Name="SeguridadInformatica_SoloHorasExtras">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.SeguridadInformatica_SoloHorasExtras">
+        <MappingFragment StoreEntitySet="SeguridadInformatica_SoloHorasExtras">
+          <ScalarProperty Name="Aprobada" ColumnName="Aprobada" />
+          <ScalarProperty Name="Justificacion" ColumnName="Justificacion" />
+          <ScalarProperty Name="HorasAprobadas" ColumnName="HorasAprobadas" />
+          <ScalarProperty Name="EsExtra" ColumnName="EsExtra" />
+          <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+          <ScalarProperty Name="Extra" ColumnName="Extra" />
+          <ScalarProperty Name="FechaHoraFin" ColumnName="FechaHoraFin" />
+          <ScalarProperty Name="FechaHoraInicio" ColumnName="FechaHoraInicio" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="UsuarioRed" ColumnName="UsuarioRed" />
+          <ScalarProperty Name="Ultimatix" ColumnName="Ultimatix" />
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="HorasExtras_ByUsuario" FunctionName="BD_SeguridadInformaticaModel.Store.HorasExtras_ByUsuario" />
+    <FunctionImportMapping FunctionImportName="Reporte_HorasIngresadas" FunctionName="BD_SeguridadInformaticaModel.Store.Reporte_HorasIngresadas" />
+    <EntitySetMapping Name="SeguridadInformatica_HorasIngresadas">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.SeguridadInformatica_HorasIngresadas">
+        <MappingFragment StoreEntitySet="SeguridadInformatica_HorasIngresadas">
+          <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+          <ScalarProperty Name="UsuarioRed" ColumnName="UsuarioRed" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BCA_Listas">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Listas">
+        <MappingFragment StoreEntitySet="BCA_Listas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="NombreLista" ColumnName="NombreLista" />
+          <ScalarProperty Name="IdLista" ColumnName="IdLista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Reporte_Proeyctos" FunctionName="BD_SeguridadInformaticaModel.Store.Reporte_Proeyctos" />
+    <EntitySetMapping Name="BCA_Bitacora">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Bitacora">
+        <MappingFragment StoreEntitySet="BCA_Bitacora">
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+          <ScalarProperty Name="Esfuerzo" ColumnName="Esfuerzo" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+          <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BCA_Servicios">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Servicios">
+        <MappingFragment StoreEntitySet="BCA_Servicios">
+          <ScalarProperty Name="AuditMachine" ColumnName="AuditMachine" />
+          <ScalarProperty Name="AuditFecha" ColumnName="AuditFecha" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_BCA_Bitacora_BCA_Servicios" TypeName="BD_SeguridadInformaticaModel.FK_BCA_Bitacora_BCA_Servicios" StoreEntitySet="BCA_Bitacora">
+      <EndProperty Name="BCA_Bitacora">
+        <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+      </EndProperty>
+      <EndProperty Name="BCA_Servicios">
+        <ScalarProperty Name="Id" ColumnName="IdServicio" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="BCA_Servicios_Detalle">
+      <EntityTypeMapping TypeName="BD_SeguridadInformaticaModel.BCA_Servicios_Detalle">
+        <MappingFragment StoreEntitySet="BCA_Servicios_Detalle">
+          <ScalarProperty Name="IdLista" ColumnName="IdLista" />
+          <ScalarProperty Name="EsLista" ColumnName="EsLista" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bitacora_CertificacionApp_DeleteDetalle" FunctionName="BD_SeguridadInformaticaModel.Store.Bitacora_CertificacionApp_DeleteDetalle" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_SeguridadInformaticaModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BD_SeguridadInformaticaModel1StoreContainer">
+    <EntitySet Name="BCA_Bitacora" EntityType="BD_SeguridadInformaticaModel1.Store.BCA_Bitacora" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BCA_Servicios" EntityType="BD_SeguridadInformaticaModel1.Store.BCA_Servicios" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_BCA_Bitacora_BCA_Servicios" Association="BD_SeguridadInformaticaModel1.Store.FK_BCA_Bitacora_BCA_Servicios">
+      <End Role="BCA_Servicios" EntitySet="BCA_Servicios" />
+      <End Role="BCA_Bitacora" EntitySet="BCA_Bitacora" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BCA_Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdServicio" Type="int" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFin" Type="datetime" Nullable="false" />
+    <Property Name="Esfuerzo" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Responsable" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Detalle" Type="xml" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BCA_Servicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="AuditUser" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AuditFecha" Type="datetime" Nullable="false" />
+    <Property Name="AuditMachine" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_BCA_Bitacora_BCA_Servicios">
+    <End Role="BCA_Servicios" Type="BD_SeguridadInformaticaModel1.Store.BCA_Servicios" Multiplicity="1" />
+    <End Role="BCA_Bitacora" Type="BD_SeguridadInformaticaModel1.Store.BCA_Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BCA_Servicios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BCA_Bitacora">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

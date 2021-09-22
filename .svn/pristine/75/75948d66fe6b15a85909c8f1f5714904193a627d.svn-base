@@ -1,0 +1,649 @@
+﻿namespace FrontEnd
+{
+    partial class FrmMatrizVulnerabilidades
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.gbxInformacionCierre = new System.Windows.Forms.GroupBox();
+            this.txtCodigoCierre = new System.Windows.Forms.TextBox();
+            this.ddlTipoCierre = new System.Windows.Forms.ComboBox();
+            this.dtpFechaCierre = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtCodigoUnico = new System.Windows.Forms.TextBox();
+            this.txtCodigoProveedor = new System.Windows.Forms.TextBox();
+            this.txtCodigoSiTcs = new System.Windows.Forms.TextBox();
+            this.ddlProveedor = new System.Windows.Forms.ComboBox();
+            this.dtpFechaIdentificacion = new System.Windows.Forms.DateTimePicker();
+            this.txtDocumentoFuente = new System.Windows.Forms.TextBox();
+            this.ddlAplicaciones = new System.Windows.Forms.ComboBox();
+            this.ddlNivel = new System.Windows.Forms.ComboBox();
+            this.ddlActivoVulnerabilidad = new System.Windows.Forms.ComboBox();
+            this.txtEquipoModulo = new System.Windows.Forms.TextBox();
+            this.ddlTipoVulnerabilidad = new System.Windows.Forms.ComboBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.ddlImpacto = new System.Windows.Forms.ComboBox();
+            this.ddlProbabilidad = new System.Windows.Forms.ComboBox();
+            this.txtCriticidad = new System.Windows.Forms.TextBox();
+            this.txtRecomendacion = new System.Windows.Forms.TextBox();
+            this.ddlEstado = new System.Windows.Forms.ComboBox();
+            this.lstVulnerabilidades = new System.Windows.Forms.ListBox();
+            this.ddlEmpresa = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnVerDetalle = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnConsulta = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.gbxInformacionCierre.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código único";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 14);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Código Proveedor";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 14);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Código SI-TCS";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 14);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Proveedor";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 186);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 14);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Fecha Identificación";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 220);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 14);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Documento Fuente";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(58, 254);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 14);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Aplicación";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(571, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 14);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Nivel";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(446, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 14);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Activo con la Vulnerabilidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(514, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(92, 14);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Equipo/Modulo";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(489, 149);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 14);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Tipo Vulnerabilidad";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(535, 197);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 14);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Descripción";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(555, 245);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 14);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Impacto";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(528, 282);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 14);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Probabilidad";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(548, 321);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 14);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Criticidad";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(512, 367);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(94, 14);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "Recomendación";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(190, 291);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(43, 15);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Estado";
+            // 
+            // gbxInformacionCierre
+            // 
+            this.gbxInformacionCierre.Controls.Add(this.txtCodigoCierre);
+            this.gbxInformacionCierre.Controls.Add(this.ddlTipoCierre);
+            this.gbxInformacionCierre.Controls.Add(this.dtpFechaCierre);
+            this.gbxInformacionCierre.Controls.Add(this.label20);
+            this.gbxInformacionCierre.Controls.Add(this.label19);
+            this.gbxInformacionCierre.Controls.Add(this.label18);
+            this.gbxInformacionCierre.Enabled = false;
+            this.gbxInformacionCierre.Location = new System.Drawing.Point(15, 346);
+            this.gbxInformacionCierre.Name = "gbxInformacionCierre";
+            this.gbxInformacionCierre.Size = new System.Drawing.Size(416, 127);
+            this.gbxInformacionCierre.TabIndex = 17;
+            this.gbxInformacionCierre.TabStop = false;
+            this.gbxInformacionCierre.Text = "Informacion de cierre";
+            // 
+            // txtCodigoCierre
+            // 
+            this.txtCodigoCierre.Location = new System.Drawing.Point(145, 93);
+            this.txtCodigoCierre.Name = "txtCodigoCierre";
+            this.txtCodigoCierre.Size = new System.Drawing.Size(248, 22);
+            this.txtCodigoCierre.TabIndex = 5;
+            // 
+            // ddlTipoCierre
+            // 
+            this.ddlTipoCierre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTipoCierre.FormattingEnabled = true;
+            this.ddlTipoCierre.Location = new System.Drawing.Point(145, 59);
+            this.ddlTipoCierre.Name = "ddlTipoCierre";
+            this.ddlTipoCierre.Size = new System.Drawing.Size(248, 22);
+            this.ddlTipoCierre.TabIndex = 4;
+            // 
+            // dtpFechaCierre
+            // 
+            this.dtpFechaCierre.Location = new System.Drawing.Point(145, 25);
+            this.dtpFechaCierre.Name = "dtpFechaCierre";
+            this.dtpFechaCierre.Size = new System.Drawing.Size(248, 22);
+            this.dtpFechaCierre.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(21, 97);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 14);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Código de solución";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(21, 63);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(82, 14);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Tipo de cierre";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(21, 29);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(90, 14);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Fecha de cierre";
+            // 
+            // txtCodigoUnico
+            // 
+            this.txtCodigoUnico.Location = new System.Drawing.Point(130, 80);
+            this.txtCodigoUnico.Name = "txtCodigoUnico";
+            this.txtCodigoUnico.Size = new System.Drawing.Size(278, 22);
+            this.txtCodigoUnico.TabIndex = 18;
+            // 
+            // txtCodigoProveedor
+            // 
+            this.txtCodigoProveedor.Location = new System.Drawing.Point(130, 114);
+            this.txtCodigoProveedor.Name = "txtCodigoProveedor";
+            this.txtCodigoProveedor.Size = new System.Drawing.Size(278, 22);
+            this.txtCodigoProveedor.TabIndex = 19;
+            // 
+            // txtCodigoSiTcs
+            // 
+            this.txtCodigoSiTcs.Location = new System.Drawing.Point(130, 12);
+            this.txtCodigoSiTcs.Name = "txtCodigoSiTcs";
+            this.txtCodigoSiTcs.Size = new System.Drawing.Size(278, 22);
+            this.txtCodigoSiTcs.TabIndex = 17;
+            // 
+            // ddlProveedor
+            // 
+            this.ddlProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlProveedor.FormattingEnabled = true;
+            this.ddlProveedor.Location = new System.Drawing.Point(130, 148);
+            this.ddlProveedor.Name = "ddlProveedor";
+            this.ddlProveedor.Size = new System.Drawing.Size(278, 22);
+            this.ddlProveedor.TabIndex = 21;
+            // 
+            // dtpFechaIdentificacion
+            // 
+            this.dtpFechaIdentificacion.Location = new System.Drawing.Point(130, 182);
+            this.dtpFechaIdentificacion.Name = "dtpFechaIdentificacion";
+            this.dtpFechaIdentificacion.Size = new System.Drawing.Size(278, 22);
+            this.dtpFechaIdentificacion.TabIndex = 22;
+            // 
+            // txtDocumentoFuente
+            // 
+            this.txtDocumentoFuente.Location = new System.Drawing.Point(130, 216);
+            this.txtDocumentoFuente.Name = "txtDocumentoFuente";
+            this.txtDocumentoFuente.Size = new System.Drawing.Size(278, 22);
+            this.txtDocumentoFuente.TabIndex = 23;
+            // 
+            // ddlAplicaciones
+            // 
+            this.ddlAplicaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlAplicaciones.FormattingEnabled = true;
+            this.ddlAplicaciones.Location = new System.Drawing.Point(130, 250);
+            this.ddlAplicaciones.Name = "ddlAplicaciones";
+            this.ddlAplicaciones.Size = new System.Drawing.Size(278, 22);
+            this.ddlAplicaciones.TabIndex = 24;
+            // 
+            // ddlNivel
+            // 
+            this.ddlNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlNivel.FormattingEnabled = true;
+            this.ddlNivel.Location = new System.Drawing.Point(614, 12);
+            this.ddlNivel.Name = "ddlNivel";
+            this.ddlNivel.Size = new System.Drawing.Size(278, 22);
+            this.ddlNivel.TabIndex = 25;
+            // 
+            // ddlActivoVulnerabilidad
+            // 
+            this.ddlActivoVulnerabilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlActivoVulnerabilidad.FormattingEnabled = true;
+            this.ddlActivoVulnerabilidad.Location = new System.Drawing.Point(614, 49);
+            this.ddlActivoVulnerabilidad.Name = "ddlActivoVulnerabilidad";
+            this.ddlActivoVulnerabilidad.Size = new System.Drawing.Size(278, 22);
+            this.ddlActivoVulnerabilidad.TabIndex = 26;
+            // 
+            // txtEquipoModulo
+            // 
+            this.txtEquipoModulo.Location = new System.Drawing.Point(614, 86);
+            this.txtEquipoModulo.Multiline = true;
+            this.txtEquipoModulo.Name = "txtEquipoModulo";
+            this.txtEquipoModulo.Size = new System.Drawing.Size(278, 44);
+            this.txtEquipoModulo.TabIndex = 27;
+            // 
+            // ddlTipoVulnerabilidad
+            // 
+            this.ddlTipoVulnerabilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTipoVulnerabilidad.FormattingEnabled = true;
+            this.ddlTipoVulnerabilidad.Location = new System.Drawing.Point(614, 145);
+            this.ddlTipoVulnerabilidad.Name = "ddlTipoVulnerabilidad";
+            this.ddlTipoVulnerabilidad.Size = new System.Drawing.Size(278, 22);
+            this.ddlTipoVulnerabilidad.TabIndex = 28;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(614, 182);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(278, 44);
+            this.txtDescripcion.TabIndex = 29;
+            // 
+            // ddlImpacto
+            // 
+            this.ddlImpacto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlImpacto.FormattingEnabled = true;
+            this.ddlImpacto.Location = new System.Drawing.Point(614, 241);
+            this.ddlImpacto.Name = "ddlImpacto";
+            this.ddlImpacto.Size = new System.Drawing.Size(278, 22);
+            this.ddlImpacto.TabIndex = 30;
+            this.ddlImpacto.SelectedIndexChanged += new System.EventHandler(this.ddlImpacto_SelectedIndexChanged);
+            // 
+            // ddlProbabilidad
+            // 
+            this.ddlProbabilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlProbabilidad.FormattingEnabled = true;
+            this.ddlProbabilidad.Location = new System.Drawing.Point(614, 278);
+            this.ddlProbabilidad.Name = "ddlProbabilidad";
+            this.ddlProbabilidad.Size = new System.Drawing.Size(278, 22);
+            this.ddlProbabilidad.TabIndex = 31;
+            this.ddlProbabilidad.SelectedIndexChanged += new System.EventHandler(this.ddlProbabilidad_SelectedIndexChanged);
+            // 
+            // txtCriticidad
+            // 
+            this.txtCriticidad.Location = new System.Drawing.Point(614, 315);
+            this.txtCriticidad.Name = "txtCriticidad";
+            this.txtCriticidad.ReadOnly = true;
+            this.txtCriticidad.Size = new System.Drawing.Size(278, 22);
+            this.txtCriticidad.TabIndex = 32;
+            // 
+            // txtRecomendacion
+            // 
+            this.txtRecomendacion.Location = new System.Drawing.Point(614, 352);
+            this.txtRecomendacion.Multiline = true;
+            this.txtRecomendacion.Name = "txtRecomendacion";
+            this.txtRecomendacion.Size = new System.Drawing.Size(278, 44);
+            this.txtRecomendacion.TabIndex = 33;
+            // 
+            // ddlEstado
+            // 
+            this.ddlEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlEstado.FormattingEnabled = true;
+            this.ddlEstado.Location = new System.Drawing.Point(118, 314);
+            this.ddlEstado.Name = "ddlEstado";
+            this.ddlEstado.Size = new System.Drawing.Size(187, 22);
+            this.ddlEstado.TabIndex = 34;
+            this.ddlEstado.SelectedIndexChanged += new System.EventHandler(this.ddlEstado_SelectedIndexChanged);
+            // 
+            // lstVulnerabilidades
+            // 
+            this.lstVulnerabilidades.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lstVulnerabilidades.FormattingEnabled = true;
+            this.lstVulnerabilidades.ItemHeight = 14;
+            this.lstVulnerabilidades.Location = new System.Drawing.Point(914, 0);
+            this.lstVulnerabilidades.Name = "lstVulnerabilidades";
+            this.lstVulnerabilidades.Size = new System.Drawing.Size(260, 485);
+            this.lstVulnerabilidades.TabIndex = 157;
+            this.lstVulnerabilidades.SelectedIndexChanged += new System.EventHandler(this.lstVulnerabilidades_SelectedIndexChanged);
+            this.lstVulnerabilidades.DoubleClick += new System.EventHandler(this.lstVulnerabilidades_DoubleClick);
+            // 
+            // ddlEmpresa
+            // 
+            this.ddlEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlEmpresa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddlEmpresa.FormattingEnabled = true;
+            this.ddlEmpresa.Location = new System.Drawing.Point(130, 46);
+            this.ddlEmpresa.Name = "ddlEmpresa";
+            this.ddlEmpresa.Size = new System.Drawing.Size(278, 22);
+            this.ddlEmpresa.TabIndex = 158;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(68, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(54, 14);
+            this.label21.TabIndex = 159;
+            this.label21.Text = "Empresa";
+            // 
+            // btnVerDetalle
+            // 
+            this.btnVerDetalle.BackColor = System.Drawing.Color.White;
+            this.btnVerDetalle.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerDetalle.Image = global::FrontEnd.Properties.Resources.Report_Card_401;
+            this.btnVerDetalle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerDetalle.Location = new System.Drawing.Point(785, 423);
+            this.btnVerDetalle.Name = "btnVerDetalle";
+            this.btnVerDetalle.Size = new System.Drawing.Size(110, 50);
+            this.btnVerDetalle.TabIndex = 160;
+            this.btnVerDetalle.Text = "Ver \r\nDetalle";
+            this.btnVerDetalle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerDetalle.UseVisualStyleBackColor = false;
+            this.btnVerDetalle.Visible = false;
+            this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.White;
+            this.btnNuevo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Image = global::FrontEnd.Properties.Resources.Create_New_40;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNuevo.Location = new System.Drawing.Point(437, 423);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(110, 50);
+            this.btnNuevo.TabIndex = 156;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnConsulta
+            // 
+            this.btnConsulta.BackColor = System.Drawing.Color.White;
+            this.btnConsulta.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsulta.Image = global::FrontEnd.Properties.Resources.Search_40;
+            this.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConsulta.Location = new System.Drawing.Point(553, 423);
+            this.btnConsulta.Name = "btnConsulta";
+            this.btnConsulta.Size = new System.Drawing.Size(110, 50);
+            this.btnConsulta.TabIndex = 36;
+            this.btnConsulta.Text = "Consultar";
+            this.btnConsulta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta.UseVisualStyleBackColor = false;
+            this.btnConsulta.Click += new System.EventHandler(this.btnConsulta_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.BackColor = System.Drawing.Color.White;
+            this.btnGrabar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabar.Image = global::FrontEnd.Properties.Resources.Save_40;
+            this.btnGrabar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGrabar.Location = new System.Drawing.Point(669, 423);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(110, 50);
+            this.btnGrabar.TabIndex = 35;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrabar.UseVisualStyleBackColor = false;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // FrmMatrizVulnerabilidades
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1174, 485);
+            this.Controls.Add(this.btnVerDetalle);
+            this.Controls.Add(this.ddlEmpresa);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.lstVulnerabilidades);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnConsulta);
+            this.Controls.Add(this.btnGrabar);
+            this.Controls.Add(this.ddlEstado);
+            this.Controls.Add(this.txtRecomendacion);
+            this.Controls.Add(this.txtCriticidad);
+            this.Controls.Add(this.ddlProbabilidad);
+            this.Controls.Add(this.ddlImpacto);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.ddlTipoVulnerabilidad);
+            this.Controls.Add(this.txtEquipoModulo);
+            this.Controls.Add(this.ddlActivoVulnerabilidad);
+            this.Controls.Add(this.ddlNivel);
+            this.Controls.Add(this.ddlAplicaciones);
+            this.Controls.Add(this.txtDocumentoFuente);
+            this.Controls.Add(this.dtpFechaIdentificacion);
+            this.Controls.Add(this.ddlProveedor);
+            this.Controls.Add(this.txtCodigoSiTcs);
+            this.Controls.Add(this.txtCodigoProveedor);
+            this.Controls.Add(this.txtCodigoUnico);
+            this.Controls.Add(this.gbxInformacionCierre);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimizeBox = false;
+            this.Name = "FrmMatrizVulnerabilidades";
+            this.Text = "Matriz Vulnerabilidades";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMatrizVulnerabilidades_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMatrizVulnerabilidades_Load);
+            this.gbxInformacionCierre.ResumeLayout(false);
+            this.gbxInformacionCierre.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox gbxInformacionCierre;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtCodigoUnico;
+        private System.Windows.Forms.TextBox txtCodigoProveedor;
+        private System.Windows.Forms.TextBox txtCodigoSiTcs;
+        private System.Windows.Forms.ComboBox ddlProveedor;
+        private System.Windows.Forms.DateTimePicker dtpFechaIdentificacion;
+        private System.Windows.Forms.TextBox txtDocumentoFuente;
+        private System.Windows.Forms.ComboBox ddlAplicaciones;
+        private System.Windows.Forms.ComboBox ddlNivel;
+        private System.Windows.Forms.ComboBox ddlActivoVulnerabilidad;
+        private System.Windows.Forms.TextBox txtCodigoCierre;
+        private System.Windows.Forms.ComboBox ddlTipoCierre;
+        private System.Windows.Forms.DateTimePicker dtpFechaCierre;
+        private System.Windows.Forms.TextBox txtEquipoModulo;
+        private System.Windows.Forms.ComboBox ddlTipoVulnerabilidad;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ComboBox ddlImpacto;
+        private System.Windows.Forms.ComboBox ddlProbabilidad;
+        private System.Windows.Forms.TextBox txtCriticidad;
+        private System.Windows.Forms.TextBox txtRecomendacion;
+        private System.Windows.Forms.ComboBox ddlEstado;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnConsulta;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.ListBox lstVulnerabilidades;
+        private System.Windows.Forms.ComboBox ddlEmpresa;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnVerDetalle;
+    }
+}

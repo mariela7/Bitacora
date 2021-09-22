@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{669EB737-F7D8-417A-91E3-02AD22A077A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicaNegocios</RootNamespace>
+    <AssemblyName>LogicaNegocios</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\ClaseBitacora_CertificacionAplicaciones.cs" />
+    <Compile Include="Clases\ClaseConocimientoCabecera.cs" />
+    <Compile Include="Clases\ClaseConocimientoCategoria.cs" />
+    <Compile Include="Clases\ClaseConocimientoDetalle.cs" />
+    <Compile Include="Clases\ClaseServicios_CertificacionAplicaciones.cs" />
+    <Compile Include="Clases\ClaseLista_CertificacionAplicaciones.cs" />
+    <Compile Include="Clases\ClaseServiciosDetalle_CertificacionAplicaciones.cs" />
+    <Compile Include="Clases\ClaseBitacora_IngenieriaSeguridad.cs" />
+    <Compile Include="Clases\ClaseCategorias_IngenieriaSeguridad.cs" />
+    <Compile Include="Clases\ClaseEmpresas_IngenieriaSeguridad.cs" />
+    <Compile Include="Clases\ClaseLogsConexion.cs" />
+    <Compile Include="Clases\ClasePlataforma_CertificacionAplicaciones.cs" />
+    <Compile Include="Clases\ClaseServicios_IngenieriaSeguridad.cs" />
+    <Compile Include="Clases\ClaseSoftware_CertificacionAplicaciones.cs" />
+    <Compile Include="Metodos\MetodoBitacora_CertificacionAplicaciones.cs" />
+    <Compile Include="Metodos\MetodoBitacora_IngenieriaSeguridad.cs" />
+    <Compile Include="Metodos\MetodoCategorias_IngenieriaSeguridad.cs" />
+    <Compile Include="Metodos\MetodoConocimiento.cs" />
+    <Compile Include="Metodos\MetodoEmpresas_IngenieriaSeguridad.cs" />
+    <Compile Include="Metodos\MetodoGeneral.cs" />
+    <Compile Include="Metodos\MetodoLogsConexion.cs" />
+    <Compile Include="Metodos\MetodoServicios_IngenieriaSeguridad.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{8706C9FF-E6C0-451C-BB82-EE05A58E9DCA}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
